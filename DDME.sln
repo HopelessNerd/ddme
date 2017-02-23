@@ -8,20 +8,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DDME", "http://localhost:19
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_19120"
-		Debug.AspNetCompiler.PhysicalPath = "D:\MS Computer Science\Courses\Web Health Informatics\App\DDME\"
+		Debug.AspNetCompiler.PhysicalPath = "DDME\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_19120\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_19120"
-		Release.AspNetCompiler.PhysicalPath = "D:\MS Computer Science\Courses\Web Health Informatics\App\DDME\"
+		Release.AspNetCompiler.PhysicalPath = "DDME\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_19120\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "D:\MS Computer Science\Courses\Web Health Informatics\App\DDME\"
+		SlnRelativePath = "DDME\"
 	EndProjectSection
 EndProject
 Global
