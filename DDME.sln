@@ -24,13 +24,22 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DDME", "http://localhost:19
 		SlnRelativePath = "DDME\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbConnect", "DbConnect\DbConnect.csproj", "{4C9CFBBD-E49E-4548-84F2-580C18C636FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9CDD624F-A5D3-45A4-81D2-3258FE2AF8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9CDD624F-A5D3-45A4-81D2-3258FE2AF8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CDD624F-A5D3-45A4-81D2-3258FE2AF8A8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CDD624F-A5D3-45A4-81D2-3258FE2AF8A8}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4C9CFBBD-E49E-4548-84F2-580C18C636FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9CFBBD-E49E-4548-84F2-580C18C636FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C9CFBBD-E49E-4548-84F2-580C18C636FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C9CFBBD-E49E-4548-84F2-580C18C636FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
