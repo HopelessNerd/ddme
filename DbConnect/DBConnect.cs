@@ -6,7 +6,7 @@ using System.IO;
 //Add MySql Library
 using MySql.Data.MySqlClient;
 
-namespace ConnectCsharpToMysql
+namespace DBConnect
 {
     class DBConnect
     {

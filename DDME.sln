@@ -7,6 +7,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DDME", "http://localhost:19
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{4c9cfbbd-e49e-4548-84f2-580c18c636fb}|DbConnect.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_19120"
 		Debug.AspNetCompiler.PhysicalPath = "DDME\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_19120\"
