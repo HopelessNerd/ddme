@@ -64,6 +64,23 @@
                                     
                                       <asp:ListItem Text="4' 10'" Value="410"></asp:ListItem>
                                       <asp:ListItem Text="4' 11'" Value="411"></asp:ListItem>
+                                      <asp:ListItem Text="5' 0 '" Value="500"></asp:ListItem>
+                                      <asp:ListItem Text="5' 1'" Value="501"></asp:ListItem>
+                                      <asp:ListItem Text="5' 2'" Value="502"></asp:ListItem>
+                                      <asp:ListItem Text="5' 3'" Value="503"></asp:ListItem>
+                                      <asp:ListItem Text="5' 4'" Value="504"></asp:ListItem>
+                                      <asp:ListItem Text="5' 5'" Value="505"></asp:ListItem>
+                                      <asp:ListItem Text="5' 6'" Value="506"></asp:ListItem>
+                                      <asp:ListItem Text="5' 7'" Value="507"></asp:ListItem>
+                                      <asp:ListItem Text="5' 8'" Value="508"></asp:ListItem>
+                                      <asp:ListItem Text="5' 9'" Value="509"></asp:ListItem>
+                                      <asp:ListItem Text="5' 10'" Value="510"></asp:ListItem>
+                                      <asp:ListItem Text="5' 11'" Value="511"></asp:ListItem>
+                                      <asp:ListItem Text="6' 0'" Value="600"></asp:ListItem>
+                                      <asp:ListItem Text="6' 1'" Value="601"></asp:ListItem>
+                                      <asp:ListItem Text="6' 2'" Value="602"></asp:ListItem>
+                                      <asp:ListItem Text="6' 3'" Value="603"></asp:ListItem>
+                                      <asp:ListItem Text="6' 4'" Value="604"></asp:ListItem>
 								</asp:DropDownList>
 
 
@@ -111,7 +128,7 @@
                                         (This activity can be done while at work or at home)
                                              <span>*</span></label>
 
-								<asp:DropDownList ID="ddlphysical" runat="server" CssClass="ddl">
+								<asp:DropDownList ID="ddlphysical" runat="server" CssClass="ddl" OnSelectedIndexChanged="ddlphysical_SelectedIndexChanged">
                                     <asp:ListItem Text="Yes" Value="Y">
                                         
                                     </asp:ListItem>
@@ -137,7 +154,7 @@
                                <label class="test-info"> Do you ever been dignosed with Higher Blood presure? <span>*</span></label>
                                   
 
-								<asp:DropDownList ID="ddlbp" runat="server" CssClass="ddl">
+								<asp:DropDownList ID="ddlbp" runat="server" CssClass="ddl" OnSelectedIndexChanged="ddlbp_SelectedIndexChanged">
                                     <asp:ListItem Text="Yes" Value="Y">
                                         
                                     </asp:ListItem>
