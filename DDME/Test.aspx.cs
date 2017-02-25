@@ -226,4 +226,10 @@ public partial class Test : System.Web.UI.Page
         hideall();
         physical.Visible = true;
     }
+
+    protected void ddlWeight_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        hideall();
+        bminfo.Visible = true;
+    }
 }

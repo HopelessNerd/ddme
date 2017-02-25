@@ -29,7 +29,7 @@
 									
                                    	
 								<asp:DropDownList ID="ddlGender" runat="server" CssClass="ddl" AutoPostBack="true" OnSelectedIndexChanged="ddlGender_SelectedIndexChanged">
-                                    <asp:ListItem>Select gender</asp:ListItem>
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem Text="Male" Value="M">
                                         
                                     </asp:ListItem>
@@ -50,7 +50,8 @@
                                     <span>*</span></label>
                                   
 
-								<asp:DropDownList ID="ddlfemgest" runat="server" CssClass="ddl" Visible="false">
+								<asp:DropDownList ID="ddlfemgest" runat="server" CssClass="ddl" Visible="false" AutoPostBack="True">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem Text="Yes" Value="Y">
                                         
                                     </asp:ListItem>
@@ -60,6 +61,9 @@
                                   
 
 								<asp:DropDownList ID="ddlheight" runat="server" CssClass="ddl" AutoPostBack="true" OnSelectedIndexChanged="ddlheight_SelectedIndexChanged">
+                                   
+                                    
+                                      <asp:ListItem>Select</asp:ListItem>
                                    
                                     
                                       <asp:ListItem Text="4' 10'" Value="410"></asp:ListItem>
@@ -89,7 +93,8 @@
                                     <label class="test-info">What is Your Weight? <span>*</span></label>
                                   
 
-								<asp:DropDownList ID="ddlWeight" runat="server" CssClass="ddl">
+								<asp:DropDownList ID="ddlWeight" runat="server" CssClass="ddl" AutoPostBack="True" OnSelectedIndexChanged="ddlWeight_SelectedIndexChanged">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem Text="192 lb" Value="Y">
                                         
                                     </asp:ListItem>
@@ -106,6 +111,7 @@
                                     <label class="test-info">How old are you ? <span>*</span></label>
                                     	
 								<asp:DropDownList ID="ddlAge" runat="server" CssClass="ddl" AutoPostBack="True" OnSelectedIndexChanged="ddlAge_SelectedIndexChanged">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem Text="Less then 40" Value="40">
                                         
                                     </asp:ListItem>
@@ -128,7 +134,8 @@
                                         (This activity can be done while at work or at home)
                                              <span>*</span></label>
 
-								<asp:DropDownList ID="ddlphysical" runat="server" CssClass="ddl" OnSelectedIndexChanged="ddlphysical_SelectedIndexChanged">
+								<asp:DropDownList ID="ddlphysical" runat="server" CssClass="ddl" AutoPostBack="True" OnSelectedIndexChanged="ddlphysical_SelectedIndexChanged">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem Text="Yes" Value="Y">
                                         
                                     </asp:ListItem>
@@ -143,7 +150,8 @@
 									<label class="test-info"> Do you have a Mother, Father ,sister or brother with diabetes? <span>*</span></label>
                                   
 
-								<asp:DropDownList ID="ddlFamily" runat="server" CssClass="ddl">
+								<asp:DropDownList ID="ddlFamily" runat="server" CssClass="ddl" AutoPostBack="True">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem Text="Yes" Value="Y">
                                         
                                     </asp:ListItem>
@@ -154,7 +162,8 @@
                                <label class="test-info"> Do you ever been dignosed with Higher Blood presure? <span>*</span></label>
                                   
 
-								<asp:DropDownList ID="ddlbp" runat="server" CssClass="ddl" OnSelectedIndexChanged="ddlbp_SelectedIndexChanged">
+								<asp:DropDownList ID="ddlbp" runat="server" CssClass="ddl" AutoPostBack="True" OnSelectedIndexChanged="ddlbp_SelectedIndexChanged">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem Text="Yes" Value="Y">
                                         
                                     </asp:ListItem>
