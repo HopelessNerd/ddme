@@ -23,6 +23,8 @@ public partial class Test : System.Web.UI.Page
         {
             hideall();
             divfemale.Visible = true;
+            lblfemgest.Visible = true;
+            ddlfemgest.Visible = true;
         }
     }
 
@@ -55,6 +57,8 @@ public partial class Test : System.Web.UI.Page
         bminfo.Visible = false;
         physical.Visible = false;
         highbp.Visible = false;
+        lblfemgest.Visible = false;
+        ddlfemgest.Visible = false;
 
     }
 

@@ -46,7 +46,7 @@
                                     
 
                                   <!-- make below question visible only if the selected gender is female-->
-                               <label class="test-info"> Have you ever been diagnosed with gestational diabetes?
+                               <label id="lblfemgest" class="test-info" runat="server" visible="false"> Have you ever been diagnosed with gestational diabetes?
                                     <span>*</span></label>
                                   
 
