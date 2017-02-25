@@ -60,7 +60,7 @@ public partial class Test : System.Web.UI.Page
         if(ddlheight.SelectedValue=="410")
         {
             ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("Select Weight", "0"));
+            ddlWeight.Items.Add(new ListItem("<119", "0"));
             ddlWeight.Items.Add(new ListItem("119-142", "1"));
             ddlWeight.Items.Add(new ListItem("143-190", "2"));
             ddlWeight.Items.Add(new ListItem("191+", "3"));            
