@@ -6,9 +6,9 @@ using System.IO;
 //Add MySql Library
 using MySql.Data.MySqlClient;
 
-namespace DBConnect
+namespace DbConnect
 {
-    class DBConnect
+    public class DBConnect
     {
         private MySqlConnection connection;
         private string server;
@@ -37,7 +37,7 @@ namespace DBConnect
 
 
         //open connection to database
-        private bool OpenConnection()
+        public bool OpenConnection()
         {
             try
             {
