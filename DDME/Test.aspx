@@ -23,6 +23,10 @@
 				
 							<div class="login-form-grids">
 								<form runat="server" id="Frm1">
+                                    
+                                <asp:ScriptManager ID="smPage" runat="server"></asp:ScriptManager>
+                                <asp:UpdatePanel runat="server">
+                                    <ContentTemplate>
 									
                                     <label class="test-info">What is your gender ? <span>*</span></label>
                                     
@@ -30,17 +34,17 @@
                                    	
 								<asp:DropDownList ID="ddlGender" runat="server" CssClass="ddl" AutoPostBack="true" OnSelectedIndexChanged="ddlGender_SelectedIndexChanged">
                                     <asp:ListItem>Select</asp:ListItem>
-                                    <asp:ListItem Text="Male" Value="M">
+                                    <asp:ListItem Text="Male" Value="1">
                                         
                                     </asp:ListItem>
-                                    <asp:ListItem Text="Female" Value="F"></asp:ListItem>
+                                    <asp:ListItem Text="Female" Value="0"></asp:ListItem>
 								</asp:DropDownList>
 
                                      <div id="divmale" runat="server" class="alert alert-danger alert-dismissable" visible="false">
                                         Males are at a higher risk for developing type 2 diabetes.
                                     </div>
                                     <div id="divfemale" runat="server" class="alert alert-info alert-dismissable" visible="false">
-                                        Males are at a higher risk for developing type 2 diabetes.
+                                        Females are at lower risk for developing type 2 diabetes.
                                     </div>
 
                                     
@@ -51,11 +55,11 @@
                                   
 
 								<asp:DropDownList ID="ddlfemgest" runat="server" CssClass="ddl" Visible="false" AutoPostBack="True">
-                                    <asp:ListItem>Select</asp:ListItem>
-                                    <asp:ListItem Text="Yes" Value="Y">
+                                    <asp:ListItem Text="Select" Value="0"></asp:ListItem>
+                                    <asp:ListItem Text="Yes" Value="1">
                                         
                                     </asp:ListItem>
-                                    <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
 								</asp:DropDownList>
                                     <label class="test-info">What is Your Height? <span>*</span></label>
                                   
@@ -112,14 +116,14 @@
                                     	
 								<asp:DropDownList ID="ddlAge" runat="server" CssClass="ddl" AutoPostBack="True" OnSelectedIndexChanged="ddlAge_SelectedIndexChanged">
                                     <asp:ListItem>Select</asp:ListItem>
-                                    <asp:ListItem Text="Less then 40" Value="40">
+                                    <asp:ListItem Text="Less then 40" Value="0">
                                         
                                     </asp:ListItem>
-                                    <asp:ListItem Text="40-49" Value="49"></asp:ListItem>
+                                    <asp:ListItem Text="40-49" Value="1"></asp:ListItem>
 								
-                                    <asp:ListItem Text="50-59" Value="59"></asp:ListItem>
+                                    <asp:ListItem Text="50-59" Value="2"></asp:ListItem>
 								
-<asp:ListItem Text="60 years or older" Value="60"></asp:ListItem>
+                                    <asp:ListItem Text="60 years or older" Value="3"></asp:ListItem>
 								</asp:DropDownList>
 
                                      <div id="divageless" runat="server" class="alert alert-info alert-dismissable" visible="false">
@@ -136,10 +140,10 @@
 
 								<asp:DropDownList ID="ddlphysical" runat="server" CssClass="ddl" AutoPostBack="True" OnSelectedIndexChanged="ddlphysical_SelectedIndexChanged">
                                     <asp:ListItem>Select</asp:ListItem>
-                                    <asp:ListItem Text="Yes" Value="Y">
+                                    <asp:ListItem Text="Yes" Value="0">
                                         
                                     </asp:ListItem>
-                                    <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                    <asp:ListItem Text="No" Value="1"></asp:ListItem>
 								</asp:DropDownList>
                                     <div id="physical" runat="server" class="alert alert-info alert-dismissable" visible="false">
                                         Increasing physical activity is a key element in controlling weight and reducing the likelihood of developing type 2 diabetes. 
@@ -152,10 +156,10 @@
 
 								<asp:DropDownList ID="ddlFamily" runat="server" CssClass="ddl" AutoPostBack="True">
                                     <asp:ListItem>Select</asp:ListItem>
-                                    <asp:ListItem Text="Yes" Value="Y">
+                                    <asp:ListItem Text="Yes" Value="1">
                                         
                                     </asp:ListItem>
-                                    <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
 								</asp:DropDownList>
 
 
@@ -163,11 +167,11 @@
                                   
 
 								<asp:DropDownList ID="ddlbp" runat="server" CssClass="ddl" AutoPostBack="True" OnSelectedIndexChanged="ddlbp_SelectedIndexChanged">
-                                    <asp:ListItem>Select</asp:ListItem>
-                                    <asp:ListItem Text="Yes" Value="Y">
+                                    <asp:ListItem Text="Select" Value="0"></asp:ListItem>
+                                    <asp:ListItem Text="Yes" Value="1">
                                         
                                     </asp:ListItem>
-                                    <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                    <asp:ListItem Text="No" Value="0"></asp:ListItem>
 								</asp:DropDownList>
                                  <div id="highbp" runat="server" class="alert alert-info alert-dismissable" visible="false">
                                        Diabetes and high blood pressure are often found together.
@@ -176,6 +180,9 @@
                                      Good control of blood pressure can substantially reduce your risk of developing complications.
                                     </div>
 
+                                <div id="divResult" runat="server" class="alert alert-info alert-dismissable">
+                                       <a></a>
+                                    </div>
                            <!--         <label class="test-info">What is Your Height? <span>*</span></label>
                                   
 
@@ -199,7 +206,10 @@
                                     <asp:ListItem Text="124 - 147 lb" Value="N"></asp:ListItem>
 								</asp:DropDownList>-->
 								
-			                                    <asp:Button ID="btnResult" runat="server" Text ="Result" />
+			                                    <asp:Button ID="btnResult" runat="server" Text ="Result" OnClick="btnResult_Click" />
+                                        
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
 								</form>
 							</div>
 							<h4>For New People</h4>

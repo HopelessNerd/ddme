@@ -14,12 +14,12 @@ public partial class Test : System.Web.UI.Page
 
     protected void ddlGender_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (ddlGender.SelectedValue == "M")
+        if (ddlGender.SelectedValue == "1")
         {
             hideall();
             divmale.Visible = true;
         }
-        else if(ddlGender.SelectedValue=="F")
+        else if(ddlGender.SelectedValue=="0")
         {
             hideall();
             divfemale.Visible = true;
@@ -235,5 +235,27 @@ public partial class Test : System.Web.UI.Page
     {
         hideall();
         bminfo.Visible = true;
+    }
+
+    private int CalculateProbability()
+    {
+        int agePoints = 0, genderPoints = 0, gestationPoints = 0, familyPoints = 0, highBloodPressurePoints = 0, physicallyActivePoints = 0, weightPoints = 0;
+        int totalPoints = 0;
+        if(int.TryParse(ddlAge.SelectedValue, out agePoints))
+            if(int.TryParse(ddlGender.SelectedValue, out genderPoints))
+                if(int.TryParse(ddlfemgest.SelectedValue, out gestationPoints))
+                    if(int.TryParse(ddlFamily.SelectedValue, out familyPoints))
+                        if(int.TryParse(ddlbp.SelectedValue, out highBloodPressurePoints))
+                            if(int.TryParse(ddlphysical.SelectedValue, out physicallyActivePoints))
+                                if(int.TryParse(ddlWeight.SelectedValue, out weightPoints))
+                                {
+                                    totalPoints = agePoints + genderPoints + gestationPoints + familyPoints + highBloodPressurePoints + physicallyActivePoints + weightPoints;
+                                }
+        return totalPoints;
+    }
+
+    protected void btnResult_Click(object sender, EventArgs e)
+    {
+        divResult.InnerHtml = "Score: " + CalculateProbability().ToString() + " (If your score is higher than 5 points, then you are at higher risk for diabetes)";
     }
 }
