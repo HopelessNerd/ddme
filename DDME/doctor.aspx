@@ -43,6 +43,8 @@
 
                                     </asp:TextBox>
                                      <asp:TextBox ID="txtCountry" runat="server"  placeholder="Country" ></asp:TextBox>
+								  <asp:TextBox ID="txtMobile" runat="server"  placeholder="Mobile Number" ></asp:TextBox>
+								 <asp:TextBox ID="txtAlternative" runat="server"  placeholder="Alternative Number" ></asp:TextBox>
 								
 									<h6>Doctor Details</h6>
 
