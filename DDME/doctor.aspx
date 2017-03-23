@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="doctor.aspx.cs" Inherits="Register" MasterPageFile="~/MasterPage.master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Doctor.aspx.cs" Inherits="Register" MasterPageFile="~/MasterPage.master"%>
 
 
 <asp:Content ID="con1" runat="server" ContentPlaceHolderID="Con1">
@@ -32,12 +32,12 @@
                                     <asp:ListItem Text="Male" Value="M">
                                         
                                     </asp:ListItem>
-                                    <asp:ListItem Text="Femake" Value="F"></asp:ListItem>
+                                    <asp:ListItem Text="Female" Value="F"></asp:ListItem>
 								</asp:DropDownList>
 								<h6>Contact Details</h6>
 
                                     
-                                    <asp:TextBox  TextMode="MultiLine" ID="txtAddress" runat="server" CssClass="ddl" >
+                                    <asp:TextBox  TextMode="MultiLine" ID="txtAddress" runat="server" CssClass="ddl" placeholder="Address">
 
 
 
