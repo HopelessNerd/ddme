@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace DbConnect.Poco
 {
-    class Pharmacist
+    public class Pharmacist
     {
 
         #region "PK's and scalar properties"
