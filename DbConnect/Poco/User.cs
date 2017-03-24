@@ -75,6 +75,7 @@ namespace DbConnect.Poco
 
         public List<Doctor> Doctors { get; set; }
 
+        public List<Pharmacist> Pharmacists { get; set; }
         #endregion
 
     }
