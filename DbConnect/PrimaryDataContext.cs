@@ -21,6 +21,11 @@ namespace DbConnect
         public DbSet<Doctor> Doctor { get; set; }
         public DbSet<Patient> Patient { get; set; }
         public DbSet<TestResult> TestResult { get; set; }
+        public DbSet<Appointment> Appointment { get; set; }
+        public DbSet<Event> Event { get; set; }
+        public DbSet<Prescription> Prescription { get; set; }
+        public DbSet<Pharmacist> Pharmacist { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
