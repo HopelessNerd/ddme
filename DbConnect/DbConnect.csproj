@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201703241724012_Initial.Designer.cs">
       <DependentUpon>201703241724012_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703261905221_Second.cs" />
+    <Compile Include="Migrations\201703261905221_Second.Designer.cs">
+      <DependentUpon>201703261905221_Second.cs</DependentUpon>
+    </Compile>
     <Compile Include="Poco\Appointment.cs" />
     <Compile Include="Poco\Doctor.cs" />
     <Compile Include="GenericRepository.cs" />
@@ -86,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703241724012_Initial.resx">
       <DependentUpon>201703241724012_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703261905221_Second.resx">
+      <DependentUpon>201703261905221_Second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
