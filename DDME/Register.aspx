@@ -26,13 +26,29 @@
                                     <asp:TextBox ID="txtFirstName" runat="server" placeholder="First Name..." ></asp:TextBox>
 
 									 <asp:TextBox ID="txtLastName" runat="server"  placeholder="Last Name..." ></asp:TextBox>
-								
+								 <div class="radio-inline">
+                            <label>
+                                <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Male" GroupName="Gender" ID="chkMale" value="Male" Checked="false" />
+                                &nbsp;
+                            </label>
+                        </div>
+                        <div class="radio-inline">
+                            <label>
+                                <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Female" GroupName="Gender" ID="chkFemale" value="Female" Checked="false" />
+                                &nbsp;
+                            </label>
+                        </div>
 								<asp:DropDownList ID="ddlUype" runat="server" CssClass="ddl">
                                     <asp:ListItem Text="Doctor" Value="D">
                                         
                                     </asp:ListItem>
                                     <asp:ListItem Text="Patient" Value="P"></asp:ListItem>
 								</asp:DropDownList>
+
+                                    
+                                     <asp:TextBox ID="txtDescription" runat="server" placeholder="Description" TextMode="MultiLine" CssClass="ddl" ></asp:TextBox>
+
+							
 								<h6>Login information</h6>
 
                                      <asp:TextBox ID="txtEmail" runat="server" placeholder="Email Address" TextMode="Email" ></asp:TextBox>
