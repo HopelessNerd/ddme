@@ -118,6 +118,12 @@ namespace DbConnect.Poco
         public int UserId { get; set; }
 
         public User LoginUserId { get; set; }
+
+        public List<Appointment> Appointments { get; set; }
+
+        public List<Event> Events { get; set; }
+
+        public List<Prescription> Prescriptions { get; set; }
         #endregion
     }
 }
