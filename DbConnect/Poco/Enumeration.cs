@@ -21,8 +21,8 @@ namespace DbConnect.Poco
     /// </summary>
     public enum Roles
     {
-        Administrator = 1,
+        Patient = 1,
         Doctor = 2,
-        Patient = 3
+        Pharmacist = 3
     }
 }
