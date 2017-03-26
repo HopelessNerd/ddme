@@ -60,7 +60,7 @@ namespace DbConnect.Poco
         [Required, ForeignKey("DoctorId")]
         public int doctorId { get; set; }
 
-        public Patient DoctorId { get; set; }
+        public Doctor DoctorId { get; set; }
         #endregion
     }
 }
