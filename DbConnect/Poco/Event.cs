@@ -55,7 +55,7 @@ namespace DbConnect.Poco
         /// User using which patient can login
         /// </summary>
         [Required, ForeignKey("PatientId")]
-        public int patientId { get; set; }
+        private int patientId { get; set; }
 
         public Patient PatientId { get; set; }
 
@@ -64,7 +64,7 @@ namespace DbConnect.Poco
         /// User using which patient can login
         /// </summary>
         [Required, ForeignKey("DoctorId")]
-        public int doctorId { get; set; }
+        private int doctorId { get; set; }
 
         public Doctor DoctorId { get; set; }
         #endregion
