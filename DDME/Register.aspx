@@ -44,6 +44,11 @@
                                     </asp:ListItem>
                                     <asp:ListItem Text="Patient" Value="P"></asp:ListItem>
 								</asp:DropDownList>
+
+                                    
+                                     <asp:TextBox ID="txtDescription" runat="server" placeholder="Description" TextMode="MultiLine" CssClass="ddl" ></asp:TextBox>
+
+							
 								<h6>Login information</h6>
 
                                      <asp:TextBox ID="txtEmail" runat="server" placeholder="Email Address" TextMode="Email" ></asp:TextBox>
