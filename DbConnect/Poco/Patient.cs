@@ -46,6 +46,13 @@ namespace DbConnect.Poco
         public string MobileNo { get; set; }
 
         /// <summary>
+        /// mobile number of a family member
+        /// </summary>
+
+        [Column(TypeName = "VARCHAR"), StringLength(20)]
+        public string AlternativeNo { get; set; }
+
+        /// <summary>
         /// land line number if it exists
         /// </summary>
         
@@ -128,6 +135,11 @@ namespace DbConnect.Poco
 
         public List<TestResult> TestResult { get; set; }
 
+        public List<Appointment> Appointments { get; set; }
+
+        public List<Event> Events { get; set; }
+
+        public List<Prescription> Prescriptions { get; set; }
         #endregion
     }
 }
