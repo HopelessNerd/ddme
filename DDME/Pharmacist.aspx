@@ -36,16 +36,22 @@
 								<form name="Frm1" runat ="server">
 									
                                     <asp:TextBox ID="txtFirstName" runat="server" placeholder="First Name..." ></asp:TextBox>
-                                     <asp:TextBox ID="txtMiddleName" runat="server"  placeholder="Middle Name..." ></asp:TextBox>
+                                 
 								
 									 <asp:TextBox ID="txtLastName" runat="server"  placeholder="Last Name..." ></asp:TextBox>
-								
-								<asp:DropDownList ID="ddlGender" runat="server" CssClass="ddl">
-                                    <asp:ListItem Text="Male" Value="M">
-                                        
-                                    </asp:ListItem>
-                                    <asp:ListItem Text="Female" Value="F"></asp:ListItem>
-								</asp:DropDownList>
+							
+                        <div class="radio-inline">
+                            <label>
+                                <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Male" GroupName="Gender" ID="chkMale" value="Male" Checked="false" />
+                                &nbsp;
+                            </label>
+                        </div>
+                        <div class="radio-inline">
+                            <label>
+                                <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Female" GroupName="Gender" ID="chkFemale" value="Female" Checked="false" />
+                                &nbsp;
+                            </label>
+                        </div>
 <h6>Contact Details</h6>
 
                                      <asp:TextBox ID="txtPhrmacyName" runat="server" CssClass="ddl" placeholder="Pharmacy Name"></asp:TextBox>
