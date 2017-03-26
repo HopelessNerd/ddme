@@ -16,6 +16,13 @@ namespace DbConnect
         private PrimaryDataContext _context = null;
 
         #region Generic Repositories
+        private GenericRepository<Appointment> _genericAppointmentRepo;
+        private GenericRepository<Doctor> _genericDoctorRepo;
+        private GenericRepository<Event> _genericEventRepo;
+        private GenericRepository<Patient> _genericPatientRepo;
+        private GenericRepository<Pharmacist> _genericPharmacistRepo;
+        private GenericRepository<Prescription> _genericPrescriptionRepo;
+        private GenericRepository<TestResult> _genericTestResultRepo;
         private GenericRepository<User> _genericUserRepo;
         #endregion
 
@@ -34,7 +41,85 @@ namespace DbConnect
 
         #region Generic Repositories
         /// <summary>
-        /// Get/Set property user repository.
+        /// Get/Set property Appointment repository.
+        /// </summary>
+        public GenericRepository<Appointment> GenericAppointmentRepo
+        {
+            get
+            {
+                if (this._genericAppointmentRepo == null)
+                    this._genericAppointmentRepo = new GenericRepository<Appointment>(_context);
+                return _genericAppointmentRepo;
+            }
+        }
+
+        /// <summary>
+        /// Get/Set property Doctor repository.
+        /// </summary>
+        public GenericRepository<Doctor> GenericDoctorRepo
+        {
+            get
+            {
+                if (this._genericDoctorRepo == null)
+                    this._genericDoctorRepo = new GenericRepository<Doctor>(_context);
+                return _genericDoctorRepo;
+            }
+        }
+
+        /// <summary>
+        /// Get/Set property Event repository.
+        /// </summary>
+        public GenericRepository<Event> GenericEventRepo
+        {
+            get
+            {
+                if (this._genericEventRepo == null)
+                    this._genericEventRepo = new GenericRepository<Event>(_context);
+                return _genericEventRepo;
+            }
+        }
+
+        /// <summary>
+        /// Get/Set property Patient repository.
+        /// </summary>
+        public GenericRepository<Patient> GenericPatientRepo
+        {
+            get
+            {
+                if (this._genericPatientRepo == null)
+                    this._genericPatientRepo = new GenericRepository<Patient>(_context);
+                return _genericPatientRepo;
+            }
+        }
+
+        /// <summary>
+        /// Get/Set property Pharmacist repository.
+        /// </summary>
+        public GenericRepository<Pharmacist> GenericPharmacistRepo
+        {
+            get
+            {
+                if (this._genericPharmacistRepo == null)
+                    this._genericPharmacistRepo = new GenericRepository<Pharmacist>(_context);
+                return _genericPharmacistRepo;
+            }
+        }
+
+        /// <summary>
+        /// Get/Set property TestResult repository.
+        /// </summary>
+        public GenericRepository<TestResult> GenericTestResultRepo
+        {
+            get
+            {
+                if (this._genericTestResultRepo == null)
+                    this._genericTestResultRepo = new GenericRepository<TestResult>(_context);
+                return _genericTestResultRepo;
+            }
+        }
+
+        /// <summary>
+        /// Get/Set property User repository.
         /// </summary>
         public GenericRepository<User> GenericUserRepo
         {
