@@ -33,7 +33,7 @@
 									<div class="forgot">
 										<a href="#">Forgot Password?</a>
 									</div>
-			                                    <asp:Button ID="btnLogin" runat="server" Text ="Login" />
+			                                    <asp:Button ID="btnLogin" runat="server" Text ="Login" OnClick="btnLogin_Click" />
 								</form>
 							</div>
 							<h4>For New People</h4>
