@@ -22,7 +22,7 @@ protected void Page_Load(object sender, EventArgs e)
 
         GenericMethods genericMethods = new GenericMethods();
 
-        if (!string.IsNullOrEmpty((string)Session["UserId"]) && (string)Session["UserType"] == "Pharmacist")
+        if (Session["UserId"] != null && (string)Session["UserType"] == "Pharmacist")
         {
             pharmacist = work.GenericPharmacistRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
             FillControls();
@@ -58,9 +58,25 @@ protected void Page_Load(object sender, EventArgs e)
         pharmacist.LandLineNo = txtAlternative.Text;
     }
 
-    private void SavepharmacistDetails()
+    private bool SavepharmacistDetails()
     {
-        work.GenericPharmacistRepo.Update(pharmacist);
-        work.Save();
+        try
+        {
+            work.GenericPharmacistRepo.Update(pharmacist);
+            work.Save();
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        CacheDetails();
+        if (SavepharmacistDetails())
+            Response.Redirect("Default.aspx");
+    }
+
+
 }
