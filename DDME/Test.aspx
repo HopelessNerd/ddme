@@ -29,7 +29,7 @@
                         <asp:UpdatePanel runat="server">
                             <ContentTemplate>
 
-                                <label class="test-info">What is your gender ? <span>*</span></label>
+                                <label class="test-info">What is your gender? <span>*</span></label>
 
 
 
@@ -94,7 +94,7 @@
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
-                                <label class="test-info">What is your waist measurement?</label>
+                                <label class="test-info">What is your waist measurement? <span>*</span></label>
                                 <asp:Table runat="server">
                                     <asp:TableRow>
                                         <asp:TableCell>
@@ -114,7 +114,7 @@
                                 </div>
                                 <asp:HiddenField ID ="hfbmi" runat="server" />
 
-                                <label class="test-info">How old are you ? <span>*</span></label>
+                                <label class="test-info">How old are you? <span>*</span></label>
 
                                 <asp:Table runat="server">
                                     <asp:TableRow>
@@ -159,7 +159,7 @@
                                     </asp:ListItem>
                                     <asp:ListItem Text="No" Value="0"></asp:ListItem>
                                 </asp:DropDownList>
-                                <label class="test-info">What is your ethenic backkground?</label>
+                                <label class="test-info">What is your ethenic background?</label>
                                 <asp:DropDownList ID="ddlethenic" runat="server" CssClass="ddl">
                                     <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem Value="6">South Asian</asp:ListItem>
@@ -188,7 +188,7 @@
                                      Good control of blood pressure can substantially reduce your risk of developing complications.
                                 </div>
 
-                                <div id="divResult" runat="server" class="alert alert-info alert-dismissable">
+                                <div id="divResult" runat="server" class="alert alert-info alert-dismissable" visible="false">
                                     <a></a>
                                 </div>
                                 <!--         <label class="test-info">What is Your Height? <span>*</span></label>
