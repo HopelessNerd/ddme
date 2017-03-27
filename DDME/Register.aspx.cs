@@ -26,11 +26,13 @@ public partial class Register : System.Web.UI.Page
     {
         _user.CreationDate = DateTime.Now;
         _user.LastUpdateDate = DateTime.Now;
+        _user.Description = txtDescription.Text.Trim();
         _user.Password = _methods.EncryptPassword(txtPassword.Text.Trim());
         _user.Role = rbtnPatient.Checked ? Roles.Patient : rbtnDoctor.Checked ? Roles.Doctor : rbtnPharmacist.Checked ? Roles.Pharmacist : Roles.Patient;
         _user.UserName = txtEmail.Text.Trim();
         if (rbtnPatient.Checked == true)
         {
+            _patient = new Patient();
             _patient.Address = "";
             _patient.AlternativeNo = "";
             _patient.Country = "";
@@ -44,7 +46,7 @@ public partial class Register : System.Web.UI.Page
             _patient.LastUpdatedDate = DateTime.Now;
             _patient.MiddleName = "";
             _patient.MobileNo = "";
-
+            _patient.Gender = chkMale.Checked == true ? Gender.Male : chkFemale.Checked == true ? Gender.Female : Gender.Male;
         }
         else if (rbtnDoctor.Checked == true)
         {
@@ -60,6 +62,7 @@ public partial class Register : System.Web.UI.Page
             _doctor.MobileNo = "";
             _doctor.Qualifications = "";
             _doctor.Speciality = "";
+            _doctor.Gender = chkMale.Checked == true ? Gender.Male : chkFemale.Checked == true ? Gender.Female : Gender.Male;
         }
         else if (rbtnPharmacist.Checked == true)
         {
@@ -71,6 +74,7 @@ public partial class Register : System.Web.UI.Page
             _pharmacist.LastName = txtLastName.Text.Trim();
             _pharmacist.MobileNo = "";
             _pharmacist.PharmacyName = "";
+            _pharmacist.Gender = chkMale.Checked == true ? Gender.Male : chkFemale.Checked == true ? Gender.Female : Gender.Male;
         }
 
         try
