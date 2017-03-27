@@ -76,7 +76,7 @@ public partial class Register : System.Web.UI.Page
             _pharmacist.LandLineNo = "";
             _pharmacist.LastName = txtLastName.Text.Trim();
             _pharmacist.MobileNo = "";
-            _pharmacist.PharmacyName = "";
+            _pharmacist.PharmacyName = txtFirstName.Text.Trim() + "'s Pharmacy";
             _pharmacist.Gender = chkMale.Checked == true ? Gender.Male : chkFemale.Checked == true ? Gender.Female : Gender.Male;
         }
 
