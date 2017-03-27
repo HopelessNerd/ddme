@@ -33,8 +33,6 @@ public partial class Login : System.Web.UI.Page
     {
         if(CheckLogin())
         {
-            Response.Redirect("Notification.aspx");
-
             if (user.Role == Roles.Patient)
                 Session["UserType"] = "Patient";
             else if (user.Role == Roles.Doctor)
@@ -43,6 +41,9 @@ public partial class Login : System.Web.UI.Page
                 Session["UserType"] = "Pharmacist";
 
             Session["UserId"] = user.Id;
+
+            Response.Redirect("Notification.aspx");
+
         }
         else
         {
