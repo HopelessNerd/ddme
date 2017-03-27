@@ -13,7 +13,7 @@ namespace DbConnect
         
         string IMigrationMetadata.Id
         {
-            get { return "201703241724012_Initial"; }
+            get { return "201703270038012_Initial"; }
         }
         
         string IMigrationMetadata.Source

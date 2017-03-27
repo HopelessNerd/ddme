@@ -56,13 +56,9 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="CustomCodeGenerator.cs" />
     <Compile Include="GenericMethods.cs" />
-    <Compile Include="Migrations\201703241724012_Initial.cs" />
-    <Compile Include="Migrations\201703241724012_Initial.Designer.cs">
-      <DependentUpon>201703241724012_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703261905221_Second.cs" />
-    <Compile Include="Migrations\201703261905221_Second.Designer.cs">
-      <DependentUpon>201703261905221_Second.cs</DependentUpon>
+    <Compile Include="Migrations\201703270038012_Initial.cs" />
+    <Compile Include="Migrations\201703270038012_Initial.Designer.cs">
+      <DependentUpon>201703270038012_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Poco\Appointment.cs" />
     <Compile Include="Poco\Doctor.cs" />
@@ -88,11 +84,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703241724012_Initial.resx">
-      <DependentUpon>201703241724012_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703261905221_Second.resx">
-      <DependentUpon>201703261905221_Second.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703270038012_Initial.resx">
+      <DependentUpon>201703270038012_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
