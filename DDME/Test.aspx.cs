@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 public partial class Test : System.Web.UI.Page
 {
+    int gendervalue, agevalue, relationvalue,bpvalue,phyvalue,bmivalue1;
+   // double percentage;
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -18,6 +20,9 @@ public partial class Test : System.Web.UI.Page
         {
             hideall();
             divmale.Visible = true;
+            hfgender.Value = "5";
+            gendervalue = int.Parse(hfgender.Value);
+            
         }
         else if(ddlGender.SelectedValue=="0")
         {
@@ -25,31 +30,10 @@ public partial class Test : System.Web.UI.Page
             divfemale.Visible = true;
             lblfemgest.Visible = true;
             ddlfemgest.Visible = true;
+            gendervalue = 0;
         }
     }
 
-    protected void ddlAge_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        int selectedValueInInt = 0;
-        if(int.TryParse(ddlAge.SelectedValue, out selectedValueInInt))
-        {
-            if (selectedValueInInt>40)
-            {
-                hideall();
-                divagemore.Visible = true;
-            }
-            else
-            {
-                hideall();
-                divageless.Visible = true;
-            }
-        }
-        else
-        {
-
-        }
-
-    }
     public void hideall()
     {
         divfemale.Visible = false;
@@ -61,175 +45,66 @@ public partial class Test : System.Web.UI.Page
         ddlfemgest.Visible = false;
 
     }
-
-
-    protected void ddlheight_SelectedIndexChanged(object sender, EventArgs e)
+    protected void bim()
     {
-        if(ddlheight.SelectedValue=="410")
+        double height = int.Parse(txtfeet.Text)*12 + int.Parse(txtinch.Text);
+        double weight = double.Parse(txtweight.Text);
+        double bmi =  ((703*weight) / (height * height));
+        txtbmi.Text = bmi.ToString();
+        if (bmi < 25)
         {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<119", "0"));
-            ddlWeight.Items.Add(new ListItem("119-142", "1"));
-            ddlWeight.Items.Add(new ListItem("143-190", "2"));
-            ddlWeight.Items.Add(new ListItem("191+", "3"));            
+            bmivalue1 = 0;
+            hfbmi.Value = "0";
         }
-        if (ddlheight.SelectedValue == "411")
+        else if (bmi >= 25 && bmi <= 29.9)
         {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<124", "0"));
-            ddlWeight.Items.Add(new ListItem("124-147", "1"));
-            ddlWeight.Items.Add(new ListItem("148-197", "2"));
-            ddlWeight.Items.Add(new ListItem("198+", "3"));
+            bmivalue1 = 4;
+            hfbmi.Value = "4";
         }
-        if (ddlheight.SelectedValue == "500")
+        else if (bmi >= 30 && bmi <= 34.9)
         {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<128", "0"));
-            ddlWeight.Items.Add(new ListItem("128-152", "1"));
-            ddlWeight.Items.Add(new ListItem("153-203", "2"));
-            ddlWeight.Items.Add(new ListItem("204+", "3"));
+            bmivalue1 = 6;
+            hfbmi.Value = "6";
         }
-        if (ddlheight.SelectedValue == "501")
+        else if (bmi >= 35)
         {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<132", "0"));
-            ddlWeight.Items.Add(new ListItem("132-157", "1"));
-            ddlWeight.Items.Add(new ListItem("158-210", "2"));
-            ddlWeight.Items.Add(new ListItem("211+", "3"));
-        }
-        if (ddlheight.SelectedValue == "502")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<136", "0"));
-            ddlWeight.Items.Add(new ListItem("136-163", "1"));
-            ddlWeight.Items.Add(new ListItem("164-217", "2"));
-            ddlWeight.Items.Add(new ListItem("218+", "3"));
-        }
-        if (ddlheight.SelectedValue == "503")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<141", "0"));
-            ddlWeight.Items.Add(new ListItem("141-168", "1"));
-            ddlWeight.Items.Add(new ListItem("169-224", "2"));
-            ddlWeight.Items.Add(new ListItem("225+", "3"));
-        }
-        if (ddlheight.SelectedValue == "504")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<145", "0"));
-            ddlWeight.Items.Add(new ListItem("145-173", "1"));
-            ddlWeight.Items.Add(new ListItem("174-231", "2"));
-            ddlWeight.Items.Add(new ListItem("232+", "3"));
-        }
-        if (ddlheight.SelectedValue == "505")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<150", "0"));
-            ddlWeight.Items.Add(new ListItem("150-179", "1"));
-            ddlWeight.Items.Add(new ListItem("180-239", "2"));
-            ddlWeight.Items.Add(new ListItem("240+", "3"));
-        }
-        if (ddlheight.SelectedValue == "506")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<155", "0"));
-            ddlWeight.Items.Add(new ListItem("155-185", "1"));
-            ddlWeight.Items.Add(new ListItem("186-246", "2"));
-            ddlWeight.Items.Add(new ListItem("247+", "3"));
-        }
-        if (ddlheight.SelectedValue == "507")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<159", "0"));
-            ddlWeight.Items.Add(new ListItem("159-190", "1"));
-            ddlWeight.Items.Add(new ListItem("191-254", "2"));
-            ddlWeight.Items.Add(new ListItem("255+", "3"));
-        }
-        if (ddlheight.SelectedValue == "508")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<164", "0"));
-            ddlWeight.Items.Add(new ListItem("164-196", "1"));
-            ddlWeight.Items.Add(new ListItem("197-261", "2"));
-            ddlWeight.Items.Add(new ListItem("262+", "3"));
-        }
-        if (ddlheight.SelectedValue == "509")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<169", "0"));
-            ddlWeight.Items.Add(new ListItem("169-202", "1"));
-            ddlWeight.Items.Add(new ListItem("203-269", "2"));
-            ddlWeight.Items.Add(new ListItem("270+", "3"));
-        }
-        if (ddlheight.SelectedValue == "510")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<174", "0"));
-            ddlWeight.Items.Add(new ListItem("174-208", "1"));
-            ddlWeight.Items.Add(new ListItem("209-277", "2"));
-            ddlWeight.Items.Add(new ListItem("278+", "3"));
-        }
-        if (ddlheight.SelectedValue == "511")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<179", "0"));
-            ddlWeight.Items.Add(new ListItem("179-214", "1"));
-            ddlWeight.Items.Add(new ListItem("215-285", "2"));
-            ddlWeight.Items.Add(new ListItem("286+", "3"));
-        }
-        if (ddlheight.SelectedValue == "600")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<184", "0"));
-            ddlWeight.Items.Add(new ListItem("184-220", "1"));
-            ddlWeight.Items.Add(new ListItem("221-293", "2"));
-            ddlWeight.Items.Add(new ListItem("294+", "3"));
-        }
-        if (ddlheight.SelectedValue == "601")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<189", "0"));
-            ddlWeight.Items.Add(new ListItem("189-226", "1"));
-            ddlWeight.Items.Add(new ListItem("227-301", "2"));
-            ddlWeight.Items.Add(new ListItem("302+", "3"));
-        }
-        if (ddlheight.SelectedValue == "602")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<194", "0"));
-            ddlWeight.Items.Add(new ListItem("194-232", "1"));
-            ddlWeight.Items.Add(new ListItem("233-310", "2"));
-            ddlWeight.Items.Add(new ListItem("311+", "3"));
-        }
-        if (ddlheight.SelectedValue == "603")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<200", "0"));
-            ddlWeight.Items.Add(new ListItem("200-239", "1"));
-            ddlWeight.Items.Add(new ListItem("240-318", "2"));
-            ddlWeight.Items.Add(new ListItem("319+", "3"));
-        }
-        if (ddlheight.SelectedValue == "604")
-        {
-            ddlWeight.Items.Clear();
-            ddlWeight.Items.Add(new ListItem("<205", "0"));
-            ddlWeight.Items.Add(new ListItem("205-245", "1"));
-            ddlWeight.Items.Add(new ListItem("246-327", "2"));
-            ddlWeight.Items.Add(new ListItem("328+", "3"));
-        }
+            bmivalue1 = 9;
+            hfbmi.Value = "9";
+        } 
+
+        hideall();
+        tblcellbmi.Visible = true;
+        bminfo.Visible = true;
+        
     }
+
 
     protected void ddlbp_SelectedIndexChanged(object sender, EventArgs e)
     {
+        if (ddlbp.SelectedValue == "2")
+        {
+            bpvalue = 0;
+            hfbp.Value = "0";
+        }
+        else if (ddlbp.SelectedValue == "1")
+        {
+            bpvalue = 5;
+            hfbp.Value = "5";
+        }
         hideall();
         highbp.Visible = true;
     }
 
     protected void ddlphysical_SelectedIndexChanged(object sender, EventArgs e)
     {
+        if (ddlphysical.SelectedValue == "1")
+            bpvalue = 0;
+        else if (ddlphysical.SelectedValue == "0")
+            bpvalue = 5;
         hideall();
         physical.Visible = true;
     }
+
 
     protected void ddlWeight_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -237,25 +112,82 @@ public partial class Test : System.Web.UI.Page
         bminfo.Visible = true;
     }
 
-    private int CalculateProbability()
+
+    protected void agecal(object sender, EventArgs e)
     {
-        int agePoints = 0, genderPoints = 0, gestationPoints = 0, familyPoints = 0, highBloodPressurePoints = 0, physicallyActivePoints = 0, weightPoints = 0;
-        int totalPoints = 0;
-        if(int.TryParse(ddlAge.SelectedValue, out agePoints))
-            if(int.TryParse(ddlGender.SelectedValue, out genderPoints))
-                if(int.TryParse(ddlfemgest.SelectedValue, out gestationPoints))
-                    if(int.TryParse(ddlFamily.SelectedValue, out familyPoints))
-                        if(int.TryParse(ddlbp.SelectedValue, out highBloodPressurePoints))
-                            if(int.TryParse(ddlphysical.SelectedValue, out physicallyActivePoints))
-                                if(int.TryParse(ddlWeight.SelectedValue, out weightPoints))
-                                {
-                                    totalPoints = agePoints + genderPoints + gestationPoints + familyPoints + highBloodPressurePoints + physicallyActivePoints + weightPoints;
-                                }
-        return totalPoints;
+        int age = int.Parse(txtage.Text);
+        if (age < 49)
+        {
+            agevalue = 0;
+            hfage.Value = "0";
+        }
+        else if (age >= 50 && age <= 59)
+        {
+            agevalue = 5;
+            hfage.Value = "5";
+        }
+        else if (age >= 60 && age <= 69)
+        {
+            agevalue = 9;
+            hfage.Value = "9";
+        }
+        else if (age >= 70)
+        {
+            agevalue = 13;
+            hfage.Value = "13";
+        }
     }
 
     protected void btnResult_Click(object sender, EventArgs e)
     {
-        divResult.InnerHtml = "Score: " + CalculateProbability().ToString() + " (If your score is higher than 5 points, then you are at higher risk for diabetes)";
+        //CalculateProbability();
+        int max = 47;
+        int finalcalculation = 0;
+        // finalcalculation = agevalue + relationvalue + gendervalue + bpvalue + bmivalue1 + phyvalue;
+        finalcalculation = int.Parse(hfgender.Value) + int.Parse(hfbmi.Value)+ int.Parse(hfage.Value)+ int.Parse(hfbp.Value)+int.Parse(hffamily.Value)+int.Parse(hfwaist.Value)+int.Parse(ddlethenic.SelectedValue);
+       double percentage = (finalcalculation * 100) / max;
+
+        divResult.InnerHtml = "Score: " + percentage.ToString() + " (If your score is higher than 5 points, then you are at higher risk for diabetes)";
+    }
+
+    protected void btnbmi_Click(object sender, EventArgs e)
+    {
+        bim();
+    }   
+
+    protected void ddlFamily_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlFamily.SelectedValue == "0")
+        {
+            relationvalue = 0;
+            hffamily.Value = "0";
+        }
+        else if (ddlFamily.SelectedValue == "1")
+        {
+            relationvalue = 5;
+            hffamily.Value = "5";
+        }
+    }
+
+    protected void txtwaist_TextChanged(object sender, EventArgs e)
+    {
+        int waist = int.Parse(txtwaist.Text);
+        if (waist <= 35.5)
+        {
+            hfwaist.Value = "0";
+        }
+        else if (waist >= 35.5 && waist <= 39.3)
+        {
+            hfwaist.Value = "4";
+        }
+        else if (waist >= 39.4 && waist <= 43.3)
+        {
+            hfwaist.Value = "6";
+        }
+        else if (waist >= 43.4)
+        {
+            hfwaist.Value = "9";
+        }
+
     }
 }
