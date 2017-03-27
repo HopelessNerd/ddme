@@ -3,15 +3,18 @@
 
 <asp:Content ID="con1" runat="server" ContentPlaceHolderID="Con1">
 
-    <!---start-date-piker---->
-    <link rel="stylesheet" href="css/jquery-ui.css" />
-    <script src="js/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-    </script>
-    <!---/End-date-piker---->
+         <!---start-date-piker---->
+								<link rel="stylesheet" href="css/jquery-ui.css" />
+								<script src="js/jquery-ui.js"></script>
+									<script>
+										$(function() {
+										    $("#dtpBirthday").datepicker();
+										});
+										
+									</script>
+							<!---/End-date-piker---->
+
+
 
     <section class="login-page">
         <div class="inner-banner demo-2 text-center">
@@ -51,8 +54,9 @@
                                 &nbsp;
                             </label>
                         </div>
-                        <input class="date" id="dtpBirthday" runat="server" type="text" placeholder="Birth Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Birth date';}" required="">
-                        <asp:DropDownList ID="ddlEthnicity" runat="server" CssClass="ddl">
+                            			
+ <input ClientIDMode="Static" class="date" id="dtpBirthday" type="text"  runat="server" placeholder="Birth Date." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+			  <asp:DropDownList ID="ddlEthnicity" runat="server" CssClass="ddl">
                             <asp:ListItem Text="South Asian" Value="SA">
 
                                         
