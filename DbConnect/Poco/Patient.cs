@@ -28,7 +28,7 @@ namespace DbConnect.Poco
         /// middle name or father's name of a family member
         /// </summary>
         
-        [Column(TypeName = "VARCHAR"), Required, StringLength(25)]
+        [Column(TypeName = "VARCHAR"), StringLength(25)]
         public string MiddleName { get; set; }
 
         /// <summary>
@@ -128,10 +128,10 @@ namespace DbConnect.Poco
         /// <summary>
         /// User using which patient can login
         /// </summary>
-        [Required, ForeignKey("LoginUserId")]
+        [Required, ForeignKey("User")]
         public int UserId { get; set; }
 
-        public User LoginUserId { get; set; }
+        public User User { get; set; }
 
         public List<TestResult> TestResult { get; set; }
 

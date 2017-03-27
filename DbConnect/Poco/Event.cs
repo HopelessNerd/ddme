@@ -37,7 +37,7 @@ namespace DbConnect.Poco
         public DateTime EndTime { get; set; }
 
         /// <summary>
-        /// It may contain full name or other details
+        /// It may contain full name or otdher details
         /// </summary>
         [Column(TypeName = "VARCHAR"), StringLength(50)]
         public string Description { get; set; }
@@ -54,19 +54,19 @@ namespace DbConnect.Poco
         /// <summary>
         /// User using which patient can login
         /// </summary>
-        [Required, ForeignKey("PatientId")]
-        public int patientId { get; set; }
+        [Required, ForeignKey("Patient")]
+        public int PatientId { get; set; }
 
-        public Patient PatientId { get; set; }
+        public Patient Patient { get; set; }
 
 
         /// <summary>
         /// User using which patient can login
         /// </summary>
-        [Required, ForeignKey("DoctorId")]
-        public int doctorId { get; set; }
+        [Required, ForeignKey("Doctor")]
+        public int DoctorId { get; set; }
 
-        public Doctor DoctorId { get; set; }
+        public Doctor Doctor { get; set; }
         #endregion
     }
 }

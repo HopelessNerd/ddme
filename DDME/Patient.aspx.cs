@@ -17,7 +17,7 @@ public partial class Register : System.Web.UI.Page
     {
         GenericMethods genericMethods = new GenericMethods();
 
-        if(!string.IsNullOrEmpty((string)Session["UserId"]) && (string)Session["UserType"] == "Patient")
+        if(Session["UserId"] != null && (string)Session["UserType"] == "Patient")
         {            
             patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
             FillControls();
@@ -54,11 +54,27 @@ public partial class Register : System.Web.UI.Page
         patient.Country = txtCountry.Text;
         patient.MobileNo = txtMobile.Text;
         patient.AlternativeNo = txtAlternative.Text;
+        patient.Id = (int)Session["UserId"];
+        patient.LastUpdatedDate = DateTime.Now;
     }
 
-    private void SavePatientDetails()
+    private bool SavePatientDetails()
     {
-        work.GenericPatientRepo.Update(patient);
-        work.Save();
+        try
+        {
+            work.GenericPatientRepo.Update(patient);
+            work.Save();
+            return true;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        CacheDetails();
+        if (SavePatientDetails())
+            Response.Redirect("Default.aspx");
     }
 }

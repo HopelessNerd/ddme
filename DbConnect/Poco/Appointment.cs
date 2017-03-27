@@ -48,19 +48,19 @@ namespace DbConnect.Poco
         /// <summary>
         /// User using which patient can login
         /// </summary>
-        [Required, ForeignKey("PatientId")]
-        public int patientId { get; set; }
+        [Required, ForeignKey("Patient")]
+        public int PatientId { get; set; }
 
-        public Patient PatientId { get; set; }
+        public Patient Patient { get; set; }
 
 
         /// <summary>
         /// User using which patient can login
         /// </summary>
-        [Required, ForeignKey("DoctorId")]
-        public int doctorId { get; set; }
+        [Required, ForeignKey("Doctor")]
+        public int DoctorId { get; set; }
 
-        public Doctor DoctorId { get; set; }
+        public Doctor Doctor { get; set; }
         #endregion
     }
 }
