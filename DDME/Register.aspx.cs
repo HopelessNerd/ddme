@@ -30,6 +30,9 @@ public partial class Register : System.Web.UI.Page
         _user.Password = _methods.EncryptPassword(txtPassword.Text.Trim());
         _user.Role = rbtnPatient.Checked ? Roles.Patient : rbtnDoctor.Checked ? Roles.Doctor : rbtnPharmacist.Checked ? Roles.Pharmacist : Roles.Patient;
         _user.UserName = txtEmail.Text.Trim();
+
+        
+
         if (rbtnPatient.Checked == true)
         {
             _patient = new Patient();
@@ -109,13 +112,21 @@ public partial class Register : System.Web.UI.Page
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-        if(SubmitData())
+        if (txtPassword.Text == txtxConfirmPassword.Text)
         {
-            Response.Redirect("Login.aspx");
+            if (SubmitData())
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+
+            }
         }
         else
         {
-            
+            ScriptManager.RegisterStartupScript(Page, GetType(), "checkpass", "<script>checkpass()</script>",false);
+
         }
     }
 }

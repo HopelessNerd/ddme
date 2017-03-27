@@ -2,6 +2,11 @@
 
 
 <asp:Content ID="con1" runat="server" ContentPlaceHolderID="Con1">
+    <script type="text/javascript">
+        function checkpass() {
+            alert("Password And Confirm Password must be same.");
+        }
+    </script>
     <section class="login-page">
         <div class="inner-banner demo-2 text-center">
             <header class="logo">
@@ -67,7 +72,7 @@
 
 
                         <asp:TextBox ID="txtPassword" runat="server" placeholder="Password..." TextMode="Password"></asp:TextBox>
-                        <asp:TextBox ID="txtxConfirmPassword" runat="server" placeholder="Confirm Password"></asp:TextBox>
+                        <asp:TextBox ID="txtxConfirmPassword" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
 
                         
 
