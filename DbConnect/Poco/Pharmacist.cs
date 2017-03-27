@@ -94,10 +94,10 @@ namespace DbConnect.Poco
         /// <summary>
         /// User using which patient can login
         /// </summary>
-        [Required, ForeignKey("LoginUserId")]
+        [Required, ForeignKey("User")]
         public int UserId { get; set; }
 
-        public User LoginUserId { get; set; }
+        public User User { get; set; }
 
         #endregion
     }
