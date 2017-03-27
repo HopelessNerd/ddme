@@ -168,7 +168,7 @@ font-family :inherit;
 	   <!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 			<ul class="nav navbar-nav nav_1">
-				<li><a href="login.aspx">Home</a></li>               
+				<li><a href="default.aspx">Home</a></li>               
 				<li><a href="login.aspx">Login</a></li>
 				<li><a href="register.aspx">Register</a></li>                
 				<li><a href="test.aspx">Take a test</a></li>               
@@ -189,15 +189,9 @@ font-family :inherit;
 			<div class="copy-right-grids">
 				<div class="container">
 					<div class="copy-left">
-							<p class="footer-gd">© 2016 Prevention. All Rights Reserved.</p>
+							<p class="footer-gd">© 2017 DDME. All Rights Reserved.</p>
 					</div>
-					<div class="footer-links">
-						<ul>
-							<li><a href="sitemap.html">Sitemap</a></li>
-							<li><a href="privacy_policy.html">Privacy Policy</a></li>
-							<li><a href="terms.html">Terms of Use</a></li>
-						</ul>
-					</div>
+					
 					<div class="clearfix"></div>
 				</div>
 			</div>
