@@ -9,7 +9,7 @@
 										$( "#datepicker" ).datepicker();
 										});
 									</script>
-							<!---/End-date-piker---->
+  						<!---/End-date-piker---->
     <section class="login-page">
 			<div class="inner-banner demo-2 text-center">
 				<header class="logo">
@@ -49,33 +49,51 @@
                                     
                                     									<div class="clearfix"></div>
 									<label class="test-info">Select Date <span>*</span></label>
-                                        <input class="date" id="datepicker" type="text" value="Appointment date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Appointment date';}" required="">
+                                        <input class="date" id="datepicker" type="text" value="Appointment date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Appointment date';}" required=""><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
 						
-									<div class="clearfix"></div>
+									&nbsp;<div class="clearfix"></div>
                                     <label class="test-info">Start TIme <span>*</span></label>
                                        
                                      	<asp:DropDownList runat="server" ID="dllStartTime"  CssClass="ddl">
-                                        <asp:ListItem Text="9:00 am" >
+                                     
+                                         
+                                  	        <asp:ListItem>10:30</asp:ListItem>
+                                            <asp:ListItem>11:00</asp:ListItem>
+                                            <asp:ListItem>11:30</asp:ListItem>
+                                            <asp:ListItem>12:00</asp:ListItem>
+                                            <asp:ListItem>12:30</asp:ListItem>
+                                            <asp:ListItem>13:00</asp:ListItem>
+                                            <asp:ListItem>13:30</asp:ListItem>
+                                            <asp:ListItem>14:00</asp:ListItem>
+                                            <asp:ListItem>14:30</asp:ListItem>
+                                            <asp:ListItem>15:00</asp:ListItem>
+                                            <asp:ListItem>15:30</asp:ListItem>
+                                            <asp:ListItem>16:00</asp:ListItem>
+                                            <asp:ListItem>16:30</asp:ListItem>
+                                            <asp:ListItem>17:00</asp:ListItem>
 
-                                        </asp:ListItem>
-                                         <asp:ListItem Text="10:00 am" >
-
-                                        </asp:ListItem> <asp:ListItem Text="12 am" >
-
-                                        </asp:ListItem>
+                                      
 
                                   	</asp:DropDownList>
                                     <label class="test-info">End TIme <span>*</span></label>
                                        
                                      	<asp:DropDownList runat="server" ID="dllEndTime"  CssClass="ddl">
-                                        <asp:ListItem Text="9:00 am" >
 
-                                        </asp:ListItem>
-                                         <asp:ListItem Text="10:00 am" >
-
-                                        </asp:ListItem> <asp:ListItem Text="12 am" >
-
-                                        </asp:ListItem>
+                                  	        <asp:ListItem>10:30</asp:ListItem>
+                                            <asp:ListItem>11:00</asp:ListItem>
+                                            <asp:ListItem>11:30</asp:ListItem>
+                                            <asp:ListItem>12:00</asp:ListItem>
+                                            <asp:ListItem>12:30</asp:ListItem>
+                                            <asp:ListItem>13:00</asp:ListItem>
+                                            <asp:ListItem>13:30</asp:ListItem>
+                                            <asp:ListItem>14:00</asp:ListItem>
+                                            <asp:ListItem>14:30</asp:ListItem>
+                                            <asp:ListItem>15:00</asp:ListItem>
+                                            <asp:ListItem>15:30</asp:ListItem>
+                                            <asp:ListItem>16:00</asp:ListItem>
+                                            <asp:ListItem>16:30</asp:ListItem>
+                                            <asp:ListItem>17:00</asp:ListItem>
 
                                   	</asp:DropDownList>
                                  
