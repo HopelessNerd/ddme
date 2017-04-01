@@ -17,11 +17,14 @@ public partial class Register : System.Web.UI.Page
     {
         GenericMethods genericMethods = new GenericMethods();
 
-        if(Session["UserId"] != null && (string)Session["UserType"] == "Patient")
-        {            
-            patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
-            FillControls();
-        }        
+        if (!IsPostBack)
+        {
+            if (Session["UserId"] != null && (string)Session["UserType"] == "Patient")
+            {
+                patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
+                FillControls();
+            }
+        }
     }
 
     private void FillControls()
@@ -45,6 +48,7 @@ public partial class Register : System.Web.UI.Page
 
     private void CacheDetails()
     {
+        patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
         patient.FirstName = txtFirstName.Text;
         patient.MiddleName = txtMiddleName.Text;
         patient.LastName = txtLastName.Text;
@@ -56,6 +60,7 @@ public partial class Register : System.Web.UI.Page
         patient.AlternativeNo = txtAlternative.Text;
         patient.Id = (int)Session["UserId"];
         patient.LastUpdatedDate = DateTime.Now;
+        patient.DateOfBirth = DateTime.Parse(dtpBirthday.Value);
     }
 
     private bool SavePatientDetails()
@@ -66,7 +71,7 @@ public partial class Register : System.Web.UI.Page
             work.Save();
             return true;
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             return false;
         }
