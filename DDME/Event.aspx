@@ -34,6 +34,8 @@
 					<h3>Genrate Events </h3>
 					
 							<div class="login-form-grids">
+                                  <asp:Label runat="server">Select Patient: </asp:Label>
+                                <asp:DropDownList ID="ddlPatient" runat="server"></asp:DropDownList>
 									<h5> Event Details </h5>
 								<form name="Frm1" runat ="server">
 
