@@ -31,6 +31,8 @@
 					<h3>Prescription Details</h3>
 					
 							<div class="login-form-grids">
+                                <asp:Label runat="server">Select Patient: </asp:Label>
+                                <asp:DropDownList ID="ddlPatient" runat="server"></asp:DropDownList>
 									<h5> Attachments </h5>
 								<form name="Frm1" runat ="server">
 
