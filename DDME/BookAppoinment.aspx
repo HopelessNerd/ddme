@@ -52,9 +52,22 @@
                                         <input class="date" id="datepicker" type="text" value="Appointment date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Appointment date';}" required="">
 						
 									<div class="clearfix"></div>
-                                    <label class="test-info">Select TIme <span>*</span></label>
+                                    <label class="test-info">Start TIme <span>*</span></label>
                                        
                                      	<asp:DropDownList runat="server" ID="dllTime"  CssClass="ddl">
+                                        <asp:ListItem Text="9:00 am" >
+
+                                        </asp:ListItem>
+                                         <asp:ListItem Text="10:00 am" >
+
+                                        </asp:ListItem> <asp:ListItem Text="12 am" >
+
+                                        </asp:ListItem>
+
+                                  	</asp:DropDownList>
+                                    <label class="test-info">End TIme <span>*</span></label>
+                                       
+                                     	<asp:DropDownList runat="server" ID="DropDownList2"  CssClass="ddl">
                                         <asp:ListItem Text="9:00 am" >
 
                                         </asp:ListItem>
