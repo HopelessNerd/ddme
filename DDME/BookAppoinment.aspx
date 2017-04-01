@@ -54,7 +54,7 @@
 									<div class="clearfix"></div>
                                     <label class="test-info">Start TIme <span>*</span></label>
                                        
-                                     	<asp:DropDownList runat="server" ID="dllTime"  CssClass="ddl">
+                                     	<asp:DropDownList runat="server" ID="dllStartTime"  CssClass="ddl">
                                         <asp:ListItem Text="9:00 am" >
 
                                         </asp:ListItem>
@@ -67,7 +67,7 @@
                                   	</asp:DropDownList>
                                     <label class="test-info">End TIme <span>*</span></label>
                                        
-                                     	<asp:DropDownList runat="server" ID="DropDownList2"  CssClass="ddl">
+                                     	<asp:DropDownList runat="server" ID="dllEndTime"  CssClass="ddl">
                                         <asp:ListItem Text="9:00 am" >
 
                                         </asp:ListItem>
