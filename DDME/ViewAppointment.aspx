@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="ViewAppoinment.aspx.vb" Inherits="ViewAppoinment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="ViewAppointment.aspx.cs" Inherits="ViewAppointment" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Con1" runat="Server">
 
@@ -28,10 +28,6 @@
         </div>
 
     </section>
-
-    <!-- //login-section -->
-
     <div class="clearfix"></div>
 
 </asp:Content>
-

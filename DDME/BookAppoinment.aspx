@@ -36,7 +36,7 @@
                     <form runat="server" id="Form1">
                         <label class="test-info">Select Doctor <span>*</span></label>
 
-                        <asp:DropDownList runat="server" ID="DropDownList1" CssClass="ddl">
+                        <asp:DropDownList runat="server" ID="ddlDoctor" CssClass="ddl">
                             <asp:ListItem Text="doctor1">
 
                             </asp:ListItem>
@@ -51,13 +51,13 @@
 
                         <div class="clearfix"></div>
                         <label class="test-info">Select Date <span>*</span></label>
-                        <input ClientIDMode="Static" runat="server" class="date" id="datepicker" type="text" value="Appointment date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Appointment date';}" required="">
-                        
+                        <input clientidmode="Static" runat="server" class="date" id="dtpAppointmentDate" type="text" value="Appointment date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Appointment date';}" required="">
+
                         <div class="clearfix"></div>
                         <label class="test-info">Start TIme <span>*</span></label>
 
                         <asp:DropDownList runat="server" ID="ddlStartTime" CssClass="ddl">
-                            
+
                             <asp:ListItem Value="08:00:00">08:00</asp:ListItem>
                             <asp:ListItem Value="08:30:00">08:30</asp:ListItem>
                             <asp:ListItem Value="09:00:00">09:00</asp:ListItem>
@@ -104,13 +104,13 @@
                             <asp:ListItem Value="17:00:00">17:00</asp:ListItem>
 
                         </asp:DropDownList>
-                        <asp:Button ID="btnBoookAppoinment" runat="server" Text="Book Appoinment" Style="margin-left: 0%; width: 100%;" />
+                        <asp:Button ID="btnBoookAppoinment" runat="server" Text="Book Appoinment" OnClick="btnBoookAppoinment_Click" Style="margin-left: 0%; width: 100%;" />
                     </form>
 
                 </div>
 
             </div>
-        </div>r
+        </div>
 
     </section>
 
