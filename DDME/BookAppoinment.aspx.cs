@@ -29,15 +29,22 @@ public partial class BookAppoinment : System.Web.UI.Page
                 FillControls();
                 PopulateDoctorDropdown();
             }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 
     private void CacheAppointmentData()
     {
         patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
+        DateTime appointmentDate = DateTime.Parse(dtpAppointmentDate.Value);
         appointment.CreationDate = DateTime.Now;
         appointment.EndTime = DateTime.ParseExact(ddlEndTime.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
+        appointment.EndTime = new DateTime(appointmentDate.Year, appointmentDate.Month, appointmentDate.Day, appointment.EndTime.Hour, appointment.EndTime.Minute, appointment.EndTime.Second);
         appointment.StartTime = DateTime.ParseExact(ddlStartTime.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
+        appointment.StartTime = new DateTime(appointmentDate.Year, appointmentDate.Month, appointmentDate.Day, appointment.StartTime.Hour, appointment.StartTime.Minute, appointment.StartTime.Second);
         appointment.IsApproved = false;
         appointment.PatientId = patient.Id;
         appointment.DoctorId = int.Parse(ddlDoctor.SelectedValue);
