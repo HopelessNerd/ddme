@@ -78,8 +78,11 @@ public partial class Register : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        CacheDetails();
-        if (SavePatientDetails())
-            Response.Redirect("Default.aspx");
+        if (Session["UserId"] != null && (string)Session["UserType"] == "Patient")
+        {
+            CacheDetails();
+            if (SavePatientDetails())
+                Response.Redirect("Default.aspx");
+        }
     }
 }
