@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DbConnect.Poco;
 using DbConnect;
+using System.Globalization;
 
 public partial class BookAppoinment : System.Web.UI.Page
 {
@@ -32,6 +33,9 @@ public partial class BookAppoinment : System.Web.UI.Page
     private void CacheAppointmentData()
     {
         appointment.CreationDate = DateTime.Now;
+        appointment.EndTime = DateTime.ParseExact(ddlEndTime.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
+        appointment.StartTime = DateTime.ParseExact(ddlStartTime.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
+        appointment.IsApproved = false;
     }
 
     private bool InsertAppointmentData()
