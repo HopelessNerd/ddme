@@ -134,14 +134,24 @@
 		</script>
 		<br />
     <br />
-    <form runat="server" id="frm"> 
-   <asp:Button runat="server" ID="btnlogin" Text="Click Here To Login " CssClass="btn btn-danger center-block "  Width="30%" OnClick="btnlogin_Click"  />
-        <br />
-        <br />
+    
+      <br />
+   
 
-
-    <asp:Button runat="server" ID="btnregister" Text="Click Here To Register" CssClass="btn btn-danger center-block " Width="30%" OnClick="btnregister_Click"/>
-          <br />
+        <div class="h1 t-button col-lg-12" style="text-align:center;">
+       <a href="#" >
+<span class="label label-primary">Login</span>
+</a>
+      
+    
+                 <a href="#">
+<span class="label label-primary">Register</span>
+</a>
+            </div>
         <br />
-        </form>
+       
+    <div class="clearfix"></div>
+      <br />
+    
+      <br />
 </asp:Content>
