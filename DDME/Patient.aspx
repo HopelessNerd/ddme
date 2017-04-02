@@ -13,7 +13,12 @@
 
     </script>
     <!---/End-date-piker---->
-
+     <script type="text/javascript">
+        function detailupdate() {
+            alert("Your Details are Updated.");
+            window.location.href = "Notification.aspx";
+        }
+    </script>
 
 
     <section class="login-page">
