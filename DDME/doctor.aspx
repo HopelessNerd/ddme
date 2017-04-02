@@ -2,6 +2,13 @@
 
 
 <asp:Content ID="con1" runat="server" ContentPlaceHolderID="Con1">
+
+    <script type="text/javascript">
+        function detailupdate() {
+            alert("Your Details are Updated.");
+            window.location.href = "Notification.aspx";
+        }
+    </script>
     <section class="login-page">
         <div class="inner-banner demo-2 text-center">
             <header class="logo">
