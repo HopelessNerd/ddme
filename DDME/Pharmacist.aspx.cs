@@ -24,6 +24,10 @@ public partial class Register : System.Web.UI.Page
                 pharmacist = work.GenericPharmacistRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
                 FillControls();
             }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
     private void FillControls()
@@ -75,7 +79,10 @@ public partial class Register : System.Web.UI.Page
         {
             CacheDetails();
             if (SavepharmacistDetails())
-                Response.Redirect("Default.aspx");
+            {
+                ScriptManager.RegisterStartupScript(Page, GetType(), "detailupdate", "<script>detailupdate()</script>", false);
+              
+            }
         }
     }
 
