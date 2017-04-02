@@ -58,7 +58,6 @@ public partial class Register : System.Web.UI.Page
         patient.Country = txtCountry.Text;
         patient.MobileNo = txtMobile.Text;
         patient.AlternativeNo = txtAlternative.Text;
-        patient.Id = (int)Session["UserId"];
         patient.LastUpdatedDate = DateTime.Now;
         patient.DateOfBirth = DateTime.Parse(dtpBirthday.Value);
     }
