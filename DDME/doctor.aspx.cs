@@ -24,6 +24,10 @@ public partial class Register : System.Web.UI.Page
                 doctor = work.GenericDoctorRepo.GetFirst(d => d.UserId == (int)Session["UserId"]);
                 FillControls();
             }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 
@@ -78,6 +82,9 @@ public partial class Register : System.Web.UI.Page
     {
         CacheDetails();
         if (SaveDoctorDetails())
-            Response.Redirect("Default.aspx");
+        {
+            ScriptManager.RegisterStartupScript(Page, GetType(), "detailupdate", "<script>detailupdate()</script>", false);
+          
+        }
     }
 }
