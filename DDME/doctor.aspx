@@ -59,7 +59,7 @@
                         <asp:TextBox ID="txtQualifications" runat="server" placeholder="Qualifications"></asp:TextBox>
 
 
-                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"/>
 
                     </form>
 

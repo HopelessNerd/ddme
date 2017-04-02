@@ -17,13 +17,14 @@ public partial class Register : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         GenericMethods genericMethods = new GenericMethods();
-
-        if (!string.IsNullOrEmpty((string)Session["UserId"]) && (string)Session["UserType"] == "Doctor")
+        if (!IsPostBack)
         {
-            doctor = work.GenericDoctorRepo.GetFirst(d => d.UserId == (int)Session["UserId"]);
-            FillControls();
-        }  
-
+            if (Session["UserId"] != null && (string)Session["UserType"] == "Doctor")
+            {
+                doctor = work.GenericDoctorRepo.GetFirst(d => d.UserId == (int)Session["UserId"]);
+                FillControls();
+            }
+        }
     }
 
     private void FillControls()
@@ -47,6 +48,7 @@ public partial class Register : System.Web.UI.Page
 
     private void CacheDetails()
     {
+        doctor = work.GenericDoctorRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
         doctor.FirstName = txtFirstName.Text;
         doctor.MiddleName = txtMiddleName.Text;
         doctor.LastName = txtLastName.Text;
@@ -55,5 +57,27 @@ public partial class Register : System.Web.UI.Page
         doctor.Country = txtCountry.Text;
         doctor.MobileNo = txtMobile.Text;
         doctor.AlternativeNo = txtAlternative.Text;
+        doctor.Speciality = txtSpeciality.Text;
+        doctor.Qualifications = txtQualifications.Text;
+    }
+
+    private bool SaveDoctorDetails()
+    {
+        try
+        {
+            work.GenericDoctorRepo.Update(doctor);
+            work.Save();
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        CacheDetails();
+        if (SaveDoctorDetails())
+            Response.Redirect("Default.aspx");
     }
 }
