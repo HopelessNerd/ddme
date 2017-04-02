@@ -9,33 +9,35 @@ using DbConnect.Poco;
 
 public partial class Register : System.Web.UI.Page
 {
-   
-       
     #region Private Variables
     private Pharmacist pharmacist = new Pharmacist();
-UnitOfWork work = new UnitOfWork();
-#endregion
+    UnitOfWork work = new UnitOfWork();
+    #endregion
 
-protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e)
     {
-
-
         GenericMethods genericMethods = new GenericMethods();
-
-        if (Session["UserId"] != null && (string)Session["UserType"] == "Pharmacist")
+        if (!IsPostBack)
         {
-            pharmacist = work.GenericPharmacistRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
-            FillControls();
+            if (Session["UserId"] != null && (string)Session["UserType"] == "Pharmacist")
+            {
+                pharmacist = work.GenericPharmacistRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
+                FillControls();
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
     private void FillControls()
     {
-        txtFirstName.Text = pharmacist.FirstName;      
+        txtFirstName.Text = pharmacist.FirstName;
         txtLastName.Text = pharmacist.LastName;
         if (pharmacist.Gender == Gender.Male)
             chkMale.Checked = true;
         else
-            chkFemale.Checked = true;      
+            chkFemale.Checked = true;
         txtAddress.Text = pharmacist.Address;
         txtCountry.Text = pharmacist.Country;
         txtMobile.Text = pharmacist.MobileNo;
@@ -46,8 +48,8 @@ protected void Page_Load(object sender, EventArgs e)
 
     private void CacheDetails()
     {
+        pharmacist = work.GenericPharmacistRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
         pharmacist.FirstName = txtFirstName.Text;
-       
         pharmacist.LastName = txtLastName.Text;
         pharmacist.Gender = chkMale.Checked == true ? Gender.Male : chkFemale.Checked == true ? Gender.Female : Gender.Male;
         pharmacist.PharmacyName = txtPhrmacyName.Text;
@@ -73,9 +75,15 @@ protected void Page_Load(object sender, EventArgs e)
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        CacheDetails();
-        if (SavepharmacistDetails())
-            Response.Redirect("Default.aspx");
+        if (Session["UserId"] != null && (string)Session["UserType"] == "Pharmacist")
+        {
+            CacheDetails();
+            if (SavepharmacistDetails())
+            {
+                ScriptManager.RegisterStartupScript(Page, GetType(), "detailupdate", "<script>detailupdate()</script>", false);
+              
+            }
+        }
     }
 
 

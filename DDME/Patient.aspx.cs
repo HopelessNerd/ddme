@@ -24,6 +24,10 @@ public partial class Register : System.Web.UI.Page
                 patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
                 FillControls();
             }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 
@@ -81,7 +85,10 @@ public partial class Register : System.Web.UI.Page
         {
             CacheDetails();
             if (SavePatientDetails())
-                Response.Redirect("Default.aspx");
+            {
+                ScriptManager.RegisterStartupScript(Page, GetType(), "detailupdate", "<script>detailupdate()</script>", false);
+              
+            }
         }
     }
 }
