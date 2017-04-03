@@ -80,7 +80,7 @@ public partial class BookAppoinment : System.Web.UI.Page
         if (appointment.DoctorId != 0)
         {
             ddlDoctor.SelectedValue = appointment.DoctorId.ToString();
-            ddlEndTime.SelectedValue = appointment.EndTime.ToShortTimeString();
+            ddlEndTime.SelectedValue = appointment.EndTime.ToShortTimeString(); 
             ddlStartTime.SelectedValue = appointment.StartTime.ToShortTimeString();
             dtpAppointmentDate.Value = appointment.StartTime.ToShortDateString();
         }
@@ -109,7 +109,7 @@ public partial class BookAppoinment : System.Web.UI.Page
         {
             CacheAppointmentData();
             if (SaveAppointmentDetails())
-                Response.Redirect("Default.aspx");
+                Response.Redirect("ViewAppointment.aspx");
         }
     }
 }
