@@ -9,7 +9,7 @@
 					</header>
 				<div id="breadcrumb_wrapper">
 					<div class="container">		
-						<h2>Book Appoinment</h2>
+						<h2>Events</h2>
 						<h6></h6>
 					</div>
 				</div>
@@ -18,33 +18,27 @@
             
             <div class="login">
 				<div class="container" style="font-size : 20px;">
+                    <form id="frm" runat="server">
                 
-                    
-                    
-                    <div class="alert alert-info alert-dismissable" >
-
-Success! Well done its submitted.
-</div>
-                    
-                    
-                       <div class="alert alert-success alert-dismissable">
-
-Success! Well done its submitted.
-</div>
-                    
-                       <div class="alert alert-warning alert-dismissable">
-
-Success! Well done its submitted.
-</div>
-                    
-                       <div class="alert alert-info alert-dismissable">
-
-Success! Well done its submitted.
-</div>
-                    
+                    <asp:GridView ID="gvDisplayAppointments" runat="server" AllowPaging="false" AutoGenerateColumns="False" DataKeyNames="Id" class="table table-bordered table-hover dataTable table-striped" role="grid">
+                            <Columns>
+                                <asp:BoundField DataField="Name" HeaderText="Doctor" SortExpression="Doctor" />
+                                <asp:BoundField DataField="Detail" HeaderText="Date" SortExpression="Date" />
+                                <asp:BoundField DataField="StartTime" HeaderText="Start Date" SortExpression="StartTime" />
+                                <asp:BoundField DataField="EndTime" HeaderText="End Date" SortExpression="EndTime" />
+                              
+                                <asp:TemplateField HeaderStyle-Width="60">
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="btnSelectAppointment" OnClick="btnSelectAppointment_Click" runat="server" formnovalidate
+                                            ImageUrl="images\tick.png" ToolTip="Select Family" CommandArgument='<%#Eval("Id")%>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <PagerStyle CssClass="dataTables_paginate paging_simple_numbers" />
+                        </asp:GridView>
                      
                     
-                    
+                    </form>
                     
                       </div>
 
