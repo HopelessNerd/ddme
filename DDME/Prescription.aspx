@@ -41,10 +41,10 @@
                          <br />
                         <br />
                          <h5>Attachments </h5>
-                        <asp:FileUpload ID="txtattach1" runat="server" />
+                        <asp:FileUpload ID="txtattach1" runat="server" /><asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
                         <br />
-                        <asp:FileUpload ID="FileUpload1" runat="server" />
-
+                        <asp:FileUpload ID="FileUpload1" runat="server" /><asp:TextBox ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
+                        <asp:Button ID="Upload" runat="server" Text="Button" />
 
 
                         <h6>Details</h6>
