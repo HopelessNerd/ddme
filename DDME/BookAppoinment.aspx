@@ -6,7 +6,7 @@
     <script src="js/jquery-ui.js"></script>
     <script>
         $(function () {
-            $("#datepicker").datepicker();
+            $("#dtpAppointmentDate").datepicker();
         });
     </script>
     <!---/End-date-piker---->
@@ -52,8 +52,7 @@
                         <div class="clearfix"></div>
                         <label class="test-info">Select Date <span>*</span></label>
                         <input clientidmode="Static" runat="server" class="date" id="dtpAppointmentDate" type="text" value="Appointment date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Appointment date';}" required="">
-                        <asp:RequiredFieldValidator ID="RequiredDate" ControlToValidate="dtAppinetmentDate" runat="server" ErrorMessage="Please select date" ForeColor="Red"></asp:RequiredFieldValidator>
-                        <div class="clearfix"></div>
+                         <div class="clearfix"></div>
                         <label class="test-info">Start TIme <span>*</span></label>
 
                         <asp:DropDownList runat="server" ID="ddlStartTime" CssClass="ddl">
