@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Con1" runat="Server">
 
+    <style type="text/css">
+        td {
+            border: none;
+            text-align: right;
+            padding: 0px;
+            padding-right: 10px;
+        }
+    </style>
+
     <!-- login-section -->
     <section class="login-page">
         <div class="inner-banner demo-2 text-center">
@@ -41,7 +50,7 @@
                                     <asp:ListItem Text="Female" Value="0"></asp:ListItem>
 
                                 </asp:DropDownList>
-                                <asp:HiddenField ID="hfgender" runat="server"/>
+                                <asp:HiddenField ID="hfgender" runat="server" />
 
 
                                 <div id="divmale" runat="server" class="alert alert-danger alert-dismissable" visible="false">
@@ -77,7 +86,8 @@
                                         </asp:TableCell>
                                         <asp:TableCell>
                                             <asp:TextBox ID="txtinch" runat="server"></asp:TextBox>
-                                            inches</asp:TableCell>
+                                            inches
+                                        </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
 
@@ -94,16 +104,7 @@
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
-                                <label class="test-info">What is your waist measurement? <span>*</span></label>
-                                <asp:Table runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:TextBox ID="txtwaist" runat="server" AutoPostBack="true" OnTextChanged="txtwaist_TextChanged"></asp:TextBox> inches
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
-                                <asp:HiddenField ID="hfwaist" runat="server" />
-                               
+
                                 <div id="bminfo" runat="server" class="alert alert-info alert-dismissable" visible="false">
                                     <br />
                                     <b>According to the World Health Organization (WHO), BMI scores of:</b><br />
@@ -112,19 +113,20 @@
                                     25.0–29.9 = Overweight/Pre-obese<br />
                                     30.0 and over = Obese<br />
                                 </div>
-                                <asp:HiddenField ID ="hfbmi" runat="server" />
+                                <label class="test-info">What is your waist measurement? <span>*</span></label>
+
+                                <asp:TextBox ID="txtwaist" runat="server" AutoPostBack="true" OnTextChanged="txtwaist_TextChanged"></asp:TextBox>
+                                <div style="text-align: right;">inches</div>
+                                <asp:HiddenField ID="hfwaist" runat="server" />
+
+                                <asp:HiddenField ID="hfbmi" runat="server" />
 
                                 <label class="test-info">How old are you? <span>*</span></label>
 
-                                <asp:Table runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:TextBox ID="txtage" runat="server" AutoPostBack="true" OnTextChanged="agecal"></asp:TextBox>
-                                            years
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
-                                <asp:HiddenField id="hfage" runat="server" />
+
+                                <asp:TextBox ID="txtage" runat="server" AutoPostBack="true" OnTextChanged="agecal"></asp:TextBox>
+                                <div style="text-align: right;">years</div>
+                                <asp:HiddenField ID="hfage" runat="server" />
                                 <div id="divageless" runat="server" class="alert alert-info alert-dismissable" visible="false">
                                     As you get older, your risk of developing diabetes goes up.
                                 </div>
@@ -193,14 +195,8 @@
                                 </div>
                                 <!--         <label class="test-info">What is Your Height? <span>*</span></label>
                                   
-
-
-
-                                    
                                     <label class="test-info">What is Your Weight? <span>*</span></label>
-                                  
-
-								<asp:DropDownList ID="ddlWeigh1t" runat="server" CssClass="ddl">
+                                  <asp:DropDownList ID="ddlWeigh1t" runat="server" CssClass="ddl">
                                     <asp:ListItem Text="192 lb" Value="Y">
                                         
                                     </asp:ListItem>
@@ -213,8 +209,6 @@
                         </asp:UpdatePanel>
                     </form>
                 </div>
-                <h4>For New Peopler New People</h4>
-                <p><a href="Register.aspx">Register Here</a> (or) go to <a href="Default.aspx">Home Page<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
             </div>
         </div>
         <!-- //login -->

@@ -12,13 +12,5 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    protected void btnlogin_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("login.aspx");
-    }
-
-    protected void btnregister_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("register.aspx");
-    }
+   
 }
