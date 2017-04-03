@@ -34,11 +34,13 @@
 					<h3>Genrate Events </h3>
 					
 							<div class="login-form-grids">
-                                  <asp:Label runat="server">Select Patient: </asp:Label>
-                                <asp:DropDownList ID="ddlPatient" runat="server"></asp:DropDownList>
+                                 
 									<h5> Event Details </h5>
 								<form name="Frm1" runat ="server">
 
+                                     <asp:Label runat="server">Select Patient: </asp:Label>
+                               
+                                     <asp:DropDownList ID="ddlPatient" runat="server" CssClass="ddl"></asp:DropDownList>
                                     <asp:TextBox ID="txtEventName" runat="server" placeholder="Event Name"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="txtEvnt" runat="server" ControlToValidate="txtEventName" ErrorMessage="This field is required." ForeColor="Red"></asp:RequiredFieldValidator>
                                     <asp:TextBox ID="txtDetail" runat="server" placeholder="Details" TextMode="MultiLine" CssClass="ddl"></asp:TextBox>
