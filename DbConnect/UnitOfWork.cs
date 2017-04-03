@@ -28,7 +28,7 @@ namespace DbConnect
 
         #region Specific Repository
 
-
+        private AppointmentRepository<Appointment> _appointmentRepository;
         #endregion
         #endregion
 
@@ -133,6 +133,18 @@ namespace DbConnect
 
         #endregion
 
+        #endregion
+
+        #region Private Repository Creation Properties
+        public AppointmentRepository<Appointment> AppointmentRepo
+        {
+            get
+            {
+                if (this._appointmentRepository == null)
+                    this._appointmentRepository = new AppointmentRepository<Appointment>(_context);
+                return _appointmentRepository;
+            }
+        }
         #endregion
 
         #region Public member methods...

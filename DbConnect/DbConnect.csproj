@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentRepository.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="CustomCodeGenerator.cs" />
     <Compile Include="GenericMethods.cs" />

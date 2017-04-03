@@ -147,7 +147,10 @@ public partial class Test : System.Web.UI.Page
         finalcalculation = int.Parse(hfgender.Value) + int.Parse(hfbmi.Value)+ int.Parse(hfage.Value)+ int.Parse(hfbp.Value)+int.Parse(hffamily.Value)+int.Parse(hfwaist.Value)+int.Parse(ddlethenic.SelectedValue);
        double percentage = (finalcalculation * 100) / max;
 
-        divResult.InnerHtml = "Score: " + percentage.ToString() + " (If your score is higher than 5 points, then you are at higher risk for diabetes)";
+        Response.Redirect("Results.aspx?total="+finalcalculation+"&percentage="+percentage);
+        //  divResult.InnerHtml = "Score: " + percentage.ToString() + " (If your score is higher than 5 points, then you are at higher risk for diabetes)";
+
+
     }
 
     protected void btnbmi_Click(object sender, EventArgs e)
