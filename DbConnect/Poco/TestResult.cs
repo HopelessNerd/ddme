@@ -48,6 +48,18 @@ namespace DbConnect.Poco
         /// Height of the patient in KGs
         /// </summary>
         [Required]
+        public float Waist { get; set; }
+
+        /// <summary>
+        /// Height of the patient in KGs
+        /// </summary>
+        [Required]
+        public int Score { get; set; }
+
+        /// <summary>
+        /// Height of the patient in KGs
+        /// </summary>
+        [Required]
         public bool IsDiagnosedWithBP { get; set; }
 
         /// <summary>
