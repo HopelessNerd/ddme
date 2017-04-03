@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DbConnect;
 using DbConnect.Poco;
+using System.Globalization;
+
 public partial class Register : System.Web.UI.Page
 {
     #region Private Variables
@@ -38,7 +40,7 @@ public partial class Register : System.Web.UI.Page
                     ddlPatient.Enabled = false;
                 }
 
-                // FillControls();
+                FillControls();
             }
             else
             {
@@ -57,9 +59,76 @@ public partial class Register : System.Web.UI.Page
         ddlPatient.DataSource = _patients;
         ddlPatient.DataBind();
         ddlPatient.Items.Insert(0, new ListItem("Select Patient", "0"));
-        
+
+    }
+
+    private void CacheDetails()
+    {
+        patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
+        _event.PatientId = patient.Id;
+        _event.Description = txtDetail.Text;
+        _event.CreationDate = DateTime.Now;
+        _event.Name = txtEventName.Text;
+        _event.StartTime = DateTime.ParseExact(txtstart.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+        _event.EndTime = DateTime.ParseExact(txtend.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+
+    }
+
+
+    private void FillControls()
+    {
+        if (string.IsNullOrEmpty(Request.QueryString["EventId"]))
+        {
+            patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
+            try
+            {
+                _event = work.GenericEventRepo.GetSingle(a => a.PatientId == patient.Id);
+            }
+            catch (Exception e)
+            { }
+        }
+        else
+        {
+            _event = work.GenericEventRepo.GetFirst(a => a.Id == int.Parse(Request.QueryString["EventId"]));
+        }
+        if (_event.Id != 0)
+        {
+            ddlPatient.SelectedValue = _event.PatientId.ToString();
+            txtend.Value = _event.EndTime.ToString("MM/dd/yyyy");
+            txtstart.Value = _event.StartTime.ToString("MM/dd/yyyy");
+            txtDetail.Text = _event.Description;
+            txtEventName.Text = _event.Name;
+
+        }
     }
 
 
 
+
+    private bool SaveEventDetails()
+    {
+        try
+        {
+            if (_event.Id == 0)
+                work.GenericEventRepo.Insert(_event);
+            else
+                work.GenericEventRepo.Update(_event);
+            work.Save();
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        if (Session["UserId"] != null && (string)Session["UserType"] == "Patient")
+        {
+            CacheDetails();
+            if (SaveEventDetails())
+                Response.Redirect("Notification.aspx");
+        }
+    }
 }
