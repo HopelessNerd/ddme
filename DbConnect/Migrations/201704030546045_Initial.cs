@@ -50,15 +50,15 @@ namespace DbConnect
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Event",
+                "dbo.Prescription",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Prescribe = c.String(maxLength: 50, unicode: false),
                         CreationDate = c.DateTime(nullable: false, precision: 0),
-                        StartTime = c.DateTime(nullable: false, precision: 0),
-                        EndTime = c.DateTime(nullable: false, precision: 0),
-                        Description = c.String(maxLength: 50, unicode: false),
-                        IsCreatedByDoctor = c.Boolean(nullable: false),
+                        File1 = c.String(maxLength: 50, unicode: false),
+                        File2 = c.String(maxLength: 50, unicode: false),
+                        Note = c.String(maxLength: 50, unicode: false),
                         PatientId = c.Int(nullable: false),
                         DoctorId = c.Int(nullable: false),
                     })
@@ -94,23 +94,20 @@ namespace DbConnect
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Prescription",
+                "dbo.Event",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Prescribe = c.String(maxLength: 50, unicode: false),
+                        Name = c.String(maxLength: 50, unicode: false),
                         CreationDate = c.DateTime(nullable: false, precision: 0),
-                        File1 = c.String(maxLength: 50, unicode: false),
-                        File2 = c.String(maxLength: 50, unicode: false),
-                        Note = c.String(maxLength: 50, unicode: false),
+                        StartTime = c.DateTime(nullable: false, precision: 0),
+                        EndTime = c.DateTime(nullable: false, precision: 0),
+                        Description = c.String(maxLength: 50, unicode: false),
                         PatientId = c.Int(nullable: false),
-                        DoctorId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Doctor", t => t.DoctorId)
                 .ForeignKey("dbo.Patient", t => t.PatientId)
-                .Index(t => t.PatientId)
-                .Index(t => t.DoctorId);
+                .Index(t => t.PatientId);
             
             CreateTable(
                 "dbo.TestResult",
@@ -173,30 +170,28 @@ namespace DbConnect
             DropForeignKey("dbo.Appointment", "FK_Appointment_Patient_PatientId");
             DropForeignKey("dbo.Appointment", "FK_Appointment_Doctor_DoctorId");
             DropForeignKey("dbo.Doctor", "FK_Doctor_User_UserId");
-            DropForeignKey("dbo.Event", "FK_Event_Patient_PatientId");
+            DropForeignKey("dbo.Prescription", "FK_Prescription_Patient_PatientId");
             DropForeignKey("dbo.Patient", "FK_Patient_User_UserId");
             DropForeignKey("dbo.Pharmacist", "FK_Pharmacist_User_UserId");
             DropForeignKey("dbo.TestResult", "FK_TestResult_Patient_PatientId");
-            DropForeignKey("dbo.Prescription", "FK_Prescription_Patient_PatientId");
+            DropForeignKey("dbo.Event", "FK_Event_Patient_PatientId");
             DropForeignKey("dbo.Prescription", "FK_Prescription_Doctor_DoctorId");
-            DropForeignKey("dbo.Event", "FK_Event_Doctor_DoctorId");
             DropIndex("dbo.Pharmacist", new[] { "UserId" });
             DropIndex("dbo.User", new[] { "UserName" });
             DropIndex("dbo.TestResult", new[] { "PatientId" });
+            DropIndex("dbo.Event", new[] { "PatientId" });
+            DropIndex("dbo.Patient", new[] { "UserId" });
             DropIndex("dbo.Prescription", new[] { "DoctorId" });
             DropIndex("dbo.Prescription", new[] { "PatientId" });
-            DropIndex("dbo.Patient", new[] { "UserId" });
-            DropIndex("dbo.Event", new[] { "DoctorId" });
-            DropIndex("dbo.Event", new[] { "PatientId" });
             DropIndex("dbo.Doctor", new[] { "UserId" });
             DropIndex("dbo.Appointment", new[] { "DoctorId" });
             DropIndex("dbo.Appointment", new[] { "PatientId" });
             DropTable("dbo.Pharmacist");
             DropTable("dbo.User");
             DropTable("dbo.TestResult");
-            DropTable("dbo.Prescription");
-            DropTable("dbo.Patient");
             DropTable("dbo.Event");
+            DropTable("dbo.Patient");
+            DropTable("dbo.Prescription");
             DropTable("dbo.Doctor");
             DropTable("dbo.Appointment");
         }

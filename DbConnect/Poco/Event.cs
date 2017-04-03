@@ -17,6 +17,12 @@ namespace DbConnect.Poco
         /// </summary>
         [Key, Required]
         public int Id { get; set; }
+        
+        /// <summary>
+        /// It may contain full name or otdher details
+        /// </summary>
+        [Column(TypeName = "VARCHAR"), StringLength(50)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Date on which the new user is created
@@ -42,12 +48,6 @@ namespace DbConnect.Poco
         [Column(TypeName = "VARCHAR"), StringLength(50)]
         public string Description { get; set; }
         
-        /// <summary>
-        /// Date on which the new user is created
-        /// </summary>
-        [Required]
-        public bool IsCreatedByDoctor { get; set; }
-
         #endregion
 
         #region Navigational Properties
@@ -59,14 +59,6 @@ namespace DbConnect.Poco
 
         public Patient Patient { get; set; }
 
-
-        /// <summary>
-        /// User using which patient can login
-        /// </summary>
-        [Required, ForeignKey("Doctor")]
-        public int DoctorId { get; set; }
-
-        public Doctor Doctor { get; set; }
         #endregion
     }
 }

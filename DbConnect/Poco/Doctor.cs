@@ -109,7 +109,6 @@ namespace DbConnect.Poco
 
         #endregion
 
-
         #region Navigational Properties
         /// <summary>
         /// User using which patient can login
@@ -120,9 +119,7 @@ namespace DbConnect.Poco
         public User User { get; set; }
 
         public List<Appointment> Appointments { get; set; }
-
-        public List<Event> Events { get; set; }
-
+        
         public List<Prescription> Prescriptions { get; set; }
         #endregion
     }
