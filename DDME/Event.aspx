@@ -40,13 +40,14 @@
 								<form name="Frm1" runat ="server">
 
                                     <asp:TextBox ID="txtEventName" runat="server" placeholder="Event Name"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="txtEvnt" runat="server" ControlToValidate="txtEventName" ErrorMessage="This field is required." ForeColor="Red"></asp:RequiredFieldValidator>
                                     <asp:TextBox ID="txtDetail" runat="server" placeholder="Details" TextMode="MultiLine" CssClass="ddl"></asp:TextBox>
                                     
                         			
- <input class="date" id="txtstart" type="text" placeholder="Start Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
-			
-                         <input class="date" id="txtend" type="text" placeholder="End Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
-						
+ <input class="date" id="txtstart" type="text" placeholder="Start Date" required="required" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
+			 
+                         <input class="date" id="txtend" type="text" placeholder="End Date" required="required" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+		
 
 	<asp:Button ID="btnSubmit" runat="server" Text ="Create" /> 
 
