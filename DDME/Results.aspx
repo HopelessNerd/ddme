@@ -214,13 +214,6 @@
                         <div class="">
                             <asp:HiddenField ID="hf2" runat="server" Value="" />
                             <h1>Your Score is : <%=hf2.Value %> </h1>
-                            <h5 class="col-lg-8" style="margin-left:05%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
-                            <h5 class="col-lg-8" style="margin-left:5%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
-                       <h5 class="col-lg-8" style="margin-left:5%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
-                       <h5 class="col-lg-8" style="margin-left:5%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
-                       <h5 class="col-lg-8" style="margin-left:5%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
-                       <h5 class="col-lg-8" style="margin-left:5%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
-                       
                         </div>
                     </form>
                 </div>
