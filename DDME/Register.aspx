@@ -7,6 +7,9 @@
         function checkpass() {
             alert("Password And Confirm Password must be same.");
         }
+        function gendalert() {
+            alert("Please select gender");
+        }
     </script>
     <section class="login-page">
         <div class="inner-banner demo-2 text-center">
@@ -33,29 +36,30 @@
                     <form name="Frm1" autocomplete="off" runat="server">
 
                         <asp:TextBox ID="txtFirstName" runat="server" placeholder="First Name..."></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFirst" ControlToValidate="txtFirstName" runat="server" ErrorMessage="First Name is  required"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFirst" ControlToValidate="txtFirstName" runat="server" ErrorMessage="First Name is required." ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:TextBox ID="txtLastName" runat="server" placeholder="Last Name..."></asp:TextBox>
-
+                        <asp:RequiredFieldValidator ID="RequiredLast" ControlToValidate="txtLastName" runat="server" ErrorMessage="Last Name is required." ForeColor="Red"></asp:RequiredFieldValidator>
                         <div class="radio-inline">
                             <label>
                                 <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Male" GroupName="Gender" ID="chkMale" value="Male" Checked="false" />
                                 &nbsp;
+
                             </label>
                         </div>
                         <div class="radio-inline">
                             <label>
-                                <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Female" GroupName="Gender" ID="chkFemale" value="Female" Checked="false" />
+                                <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Female" GroupName="Gender" ID="chkFemale" value="Female" Checked="true" />
                                 &nbsp;
                             </label>
                         </div>
 
                         <asp:TextBox ID="txtDescription" runat="server" placeholder="Description" TextMode="MultiLine" CssClass="ddl"></asp:TextBox>
-
+                         <asp:RequiredFieldValidator ID="Requireddesc" ControlToValidate="txtDescription" runat="server" ErrorMessage="Description is required." ForeColor="Red"></asp:RequiredFieldValidator>
                         <h6>Login information</h6>
 
                         <div class="radio-inline">
                             <label>
-                                <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Patient" GroupName="Role" ID="rbtnPatient" value="Patient" Checked="false" />
+                                <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Patient" GroupName="Role" ID="rbtnPatient" value="Patient" Checked="true" />
                                 &nbsp;
                             </label>
                         </div>
@@ -71,18 +75,20 @@
                                 &nbsp;
                             </label>
                         </div>
-                        <asp:TextBox ID="txtEmail" runat="server" placeholder="Email Address" TextMode="Email"></asp:TextBox>
-
-
-                        <asp:TextBox ID="txtPassword" runat="server"  placeholder="Password..." TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" placeholder="Email Address" AutoCompleteType="Disabled" TextMode="Email"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredEmail" ControlToValidate="txtEmail" runat="server" ErrorMessage="Email is required." ForeColor="Red"></asp:RequiredFieldValidator>
+                         
+                        <asp:TextBox ID="txtPassword" runat="server" placeholder="Password..." TextMode="Password"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredPassword" ControlToValidate="txtPassword" runat="server" ErrorMessage="This field is required." ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:TextBox ID="txtxConfirmPassword" runat="server" placeholder="Confirm Password" TextMode="Password" OnTextChanged="passmatch"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredConfPassword" ControlToValidate="txtxConfirmPassword" runat="server" ErrorMessage="This field is required." ForeColor="Red"></asp:RequiredFieldValidator>
 
 
 
                         <div class="register-check-box">
                             <div class="check">
-                                <label class="checkbox">
-                                    <input type="checkbox" name="checkbox"><i> </i>I accept the terms and conditions</label>
+                                <label class="*checkbox">
+                                    <input type="checkbox" name="checkbox" required="required"><i> </i>I accept the terms and conditions</label>
                             </div>
                         </div>
                         <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
