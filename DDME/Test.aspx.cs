@@ -4,14 +4,32 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DbConnect.Poco;
+using DbConnect;
 
 public partial class Test : System.Web.UI.Page
 {
-    int gendervalue, agevalue, relationvalue,bpvalue,phyvalue,bmivalue1;
-   // double percentage;
+    #region Private Variables
+    private Patient patient = new Patient();
+    private TestResult testResult = new TestResult();
+    UnitOfWork work = new UnitOfWork();
+    private int gendervalue, agevalue, relationvalue, bpvalue, phyvalue, bmivalue1;
+    #endregion
+
+    #region Events
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            if (Session["UserId"] != null && (string)Session["UserType"] == "Patient")
+            {
+                patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
     }
 
     protected void ddlGender_SelectedIndexChanged(object sender, EventArgs e)
@@ -22,9 +40,9 @@ public partial class Test : System.Web.UI.Page
             divmale.Visible = true;
             hfgender.Value = "5";
             gendervalue = int.Parse(hfgender.Value);
-            
+
         }
-        else if(ddlGender.SelectedValue=="0")
+        else if (ddlGender.SelectedValue == "0")
         {
             hideall();
             divfemale.Visible = true;
@@ -33,51 +51,6 @@ public partial class Test : System.Web.UI.Page
             gendervalue = 0;
         }
     }
-
-    public void hideall()
-    {
-        divfemale.Visible = false;
-        divmale.Visible = false;
-        bminfo.Visible = false;
-        physical.Visible = false;
-        highbp.Visible = false;
-        lblfemgest.Visible = false;
-        ddlfemgest.Visible = false;
-
-    }
-    protected void bim()
-    {
-        double height = int.Parse(txtfeet.Text)*12 + int.Parse(txtinch.Text);
-        double weight = double.Parse(txtweight.Text);
-        double bmi =  ((703*weight) / (height * height));
-        txtbmi.Text = bmi.ToString();
-        if (bmi < 25)
-        {
-            bmivalue1 = 0;
-            hfbmi.Value = "0";
-        }
-        else if (bmi >= 25 && bmi <= 29.9)
-        {
-            bmivalue1 = 4;
-            hfbmi.Value = "4";
-        }
-        else if (bmi >= 30 && bmi <= 34.9)
-        {
-            bmivalue1 = 6;
-            hfbmi.Value = "6";
-        }
-        else if (bmi >= 35)
-        {
-            bmivalue1 = 9;
-            hfbmi.Value = "9";
-        } 
-
-        hideall();
-        tblcellbmi.Visible = true;
-        bminfo.Visible = true;
-        
-    }
-
 
     protected void ddlbp_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -105,58 +78,16 @@ public partial class Test : System.Web.UI.Page
         physical.Visible = true;
     }
 
-
     protected void ddlWeight_SelectedIndexChanged(object sender, EventArgs e)
     {
         hideall();
         bminfo.Visible = true;
     }
-
-
-    protected void agecal(object sender, EventArgs e)
-    {
-        int age = int.Parse(txtage.Text);
-        if (age < 49)
-        {
-            agevalue = 0;
-            hfage.Value = "0";
-        }
-        else if (age >= 50 && age <= 59)
-        {
-            agevalue = 5;
-            hfage.Value = "5";
-        }
-        else if (age >= 60 && age <= 69)
-        {
-            agevalue = 9;
-            hfage.Value = "9";
-        }
-        else if (age >= 70)
-        {
-            agevalue = 13;
-            hfage.Value = "13";
-        }
-    }
-
-    protected void btnResult_Click(object sender, EventArgs e)
-    {
-        //CalculateProbability();
-        int max = 47;
-        int finalcalculation = 0;
-        // finalcalculation = agevalue + relationvalue + gendervalue + bpvalue + bmivalue1 + phyvalue;
-        finalcalculation = int.Parse(hfgender.Value) + int.Parse(hfbmi.Value)+ int.Parse(hfage.Value)+ int.Parse(hfbp.Value)+int.Parse(hffamily.Value)+int.Parse(hfwaist.Value)+int.Parse(ddlethenic.SelectedValue);
-       double percentage = (finalcalculation * 100) / max;
-
-        Response.Redirect("Results.aspx?total="+finalcalculation+"&percentage="+percentage);
-        //  divResult.InnerHtml = "Score: " + percentage.ToString() + " (If your score is higher than 5 points, then you are at higher risk for diabetes)";
-
-
-    }
-
+    
     protected void btnbmi_Click(object sender, EventArgs e)
     {
         bim();
-    }   
+    }
 
     protected void ddlFamily_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -193,4 +124,104 @@ public partial class Test : System.Web.UI.Page
         }
 
     }
+
+    protected void btnResult_Click(object sender, EventArgs e)
+    {
+        //CalculateProbability();
+        int max = 47;
+        int finalcalculation = 0;
+        // finalcalculation = agevalue + relationvalue + gendervalue + bpvalue + bmivalue1 + phyvalue;
+        finalcalculation = int.Parse(hfgender.Value) + int.Parse(hfbmi.Value) + int.Parse(hfage.Value) + int.Parse(hfbp.Value) + int.Parse(hffamily.Value) + int.Parse(hfwaist.Value) + int.Parse(ddlethenic.SelectedValue);
+        double percentage = (finalcalculation * 100) / max;
+
+        Response.Redirect("Results.aspx?total=" + finalcalculation + "&percentage=" + percentage);
+        //  divResult.InnerHtml = "Score: " + percentage.ToString() + " (If your score is higher than 5 points, then you are at higher risk for diabetes)";
+
+
+    }
+    #endregion
+
+    #region Manipulaion methods
+
+    public void hideall()
+    {
+        divfemale.Visible = false;
+        divmale.Visible = false;
+        bminfo.Visible = false;
+        physical.Visible = false;
+        highbp.Visible = false;
+        lblfemgest.Visible = false;
+        ddlfemgest.Visible = false;
+
+    }
+
+    protected void bim()
+    {
+        double height = int.Parse(txtfeet.Text) * 12 + int.Parse(txtinch.Text);
+        double weight = double.Parse(txtweight.Text);
+        double bmi = ((703 * weight) / (height * height));
+        txtbmi.Text = bmi.ToString();
+        if (bmi < 25)
+        {
+            bmivalue1 = 0;
+            hfbmi.Value = "0";
+        }
+        else if (bmi >= 25 && bmi <= 29.9)
+        {
+            bmivalue1 = 4;
+            hfbmi.Value = "4";
+        }
+        else if (bmi >= 30 && bmi <= 34.9)
+        {
+            bmivalue1 = 6;
+            hfbmi.Value = "6";
+        }
+        else if (bmi >= 35)
+        {
+            bmivalue1 = 9;
+            hfbmi.Value = "9";
+        }
+
+        hideall();
+        tblcellbmi.Visible = true;
+        bminfo.Visible = true;
+
+    }
+
+    protected void agecal(object sender, EventArgs e)
+    {
+        int age = int.Parse(txtage.Text);
+        if (age < 49)
+        {
+            agevalue = 0;
+            hfage.Value = "0";
+        }
+        else if (age >= 50 && age <= 59)
+        {
+            agevalue = 5;
+            hfage.Value = "5";
+        }
+        else if (age >= 60 && age <= 69)
+        {
+            agevalue = 9;
+            hfage.Value = "9";
+        }
+        else if (age >= 70)
+        {
+            agevalue = 13;
+            hfage.Value = "13";
+        }
+    }
+
+    private void CacheTestResult()
+    {
+        if (ddlFamily.SelectedValue == "1")
+            testResult.AreRelativesDiagnosed = true;
+        else
+            testResult.AreRelativesDiagnosed = false;
+
+        testResult.CreationDate = DateTime.Now;
+    }
+
+    #endregion
 }
