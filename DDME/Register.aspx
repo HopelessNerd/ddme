@@ -38,7 +38,9 @@
                         <asp:TextBox ID="txtFirstName" runat="server" placeholder="First Name..."></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFirst" ControlToValidate="txtFirstName" runat="server" ErrorMessage="First Name is required." ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:TextBox ID="txtLastName" runat="server" placeholder="Last Name..."></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredLast" ControlToValidate="txtLastName" runat="server" ErrorMessage="Last Name is required." ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredLast" ControlToValidate="txtLastName" runat="server" ErrorMessage="Last Name is required." ForeColor="Red">
+                        </asp:RequiredFieldValidator>
+                        <br />
                         <div class="radio-inline">
                             <label>
                                 <asp:RadioButton runat="server" CssClass="radio" type="radio" Text="Male" GroupName="Gender" ID="chkMale" value="Male" Checked="false" />

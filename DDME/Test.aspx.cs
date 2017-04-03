@@ -13,7 +13,8 @@ public partial class Test : System.Web.UI.Page
     private Patient patient = new Patient();
     private TestResult testResult = new TestResult();
     UnitOfWork work = new UnitOfWork();
-    private int gendervalue, agevalue, relationvalue, bpvalue, phyvalue, bmivalue1;
+    private int gendervalue, agevalue, relationvalue, bpvalue, phyvalue, bmivalue1, finalcalculation = 0;
+    private double percentage = 0;
     #endregion
 
     #region Events
@@ -83,7 +84,7 @@ public partial class Test : System.Web.UI.Page
         hideall();
         bminfo.Visible = true;
     }
-    
+
     protected void btnbmi_Click(object sender, EventArgs e)
     {
         bim();
@@ -129,13 +130,15 @@ public partial class Test : System.Web.UI.Page
     {
         //CalculateProbability();
         int max = 47;
-        int finalcalculation = 0;
         // finalcalculation = agevalue + relationvalue + gendervalue + bpvalue + bmivalue1 + phyvalue;
         finalcalculation = int.Parse(hfgender.Value) + int.Parse(hfbmi.Value) + int.Parse(hfage.Value) + int.Parse(hfbp.Value) + int.Parse(hffamily.Value) + int.Parse(hfwaist.Value) + int.Parse(ddlethenic.SelectedValue);
-        double percentage = (finalcalculation * 100) / max;
-
-        Response.Redirect("Results.aspx?total=" + finalcalculation + "&percentage=" + percentage);
-        //  divResult.InnerHtml = "Score: " + percentage.ToString() + " (If your score is higher than 5 points, then you are at higher risk for diabetes)";
+        percentage = (finalcalculation * 100) / max;
+        CacheTestResult();
+        if (SaveTestResult())
+        {
+            Response.Redirect("Results.aspx?total=" + finalcalculation + "&percentage=" + percentage);
+        }
+        
 
 
     }
@@ -215,12 +218,41 @@ public partial class Test : System.Web.UI.Page
 
     private void CacheTestResult()
     {
+        patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
         if (ddlFamily.SelectedValue == "1")
             testResult.AreRelativesDiagnosed = true;
-        else
+        else if (ddlFamily.SelectedValue == "2")
             testResult.AreRelativesDiagnosed = false;
-
         testResult.CreationDate = DateTime.Now;
+        testResult.Height = float.Parse(txtfeet.Text + "." + txtinch.Text);
+        if (ddlbp.SelectedValue == "1")
+            testResult.IsDiagnosedWithBP = true;
+        else if (ddlbp.SelectedValue == "2")
+            testResult.IsDiagnosedWithBP = false;
+        if (ddlphysical.SelectedValue == "1")
+            testResult.IsPhysicallyActive = true;
+        else if (ddlphysical.SelectedValue == "2")
+            testResult.IsPhysicallyActive = false;
+        testResult.IsGestationalDiabetes = false;
+        testResult.Waist = float.Parse(txtwaist.Text);
+        testResult.PatientId = patient.Id;
+        testResult.Weight = float.Parse(txtweight.Text);
+        testResult.Description = "Created on " + DateTime.Now.ToShortDateString();
+        testResult.Score = finalcalculation;
+    }
+
+    private bool SaveTestResult()
+    {
+        try
+        {
+            work.GenericTestResultRepo.Insert(testResult);
+            work.Save();
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
     #endregion
