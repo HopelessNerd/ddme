@@ -11,7 +11,7 @@
   };
   
   Gauge.prototype = {
-    colors: ['gauge-green', 'gauge-orange', 'gauge-yellow', 'gauge-blue', 'gauge-red'],
+    colors: ['gauge-orange', 'gauge-yellow', 'gauge-blue', 'gauge-red'],
     partSize: 0,
     initParams: function () {
       var colorLen = Gauge.prototype.colors.length;

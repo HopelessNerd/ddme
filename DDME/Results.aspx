@@ -82,24 +82,25 @@
                         -o-border-radius: 100%;
                     }
 
-        .gauge-red.gauge:before {
-            border-color: #ff4e00;
+        .gauge-rd.gauge:before {
+            border-color: #ec1d25;
         }
 
-        .gauge-orange.gauge:before {
-            border-color: #ffa600;
+        .gauge-range.gauge:before {
+            border-color: #84c449;
+        }
+          .gauge-reen.gauge:before {
+            border-color: #84c449;
         }
 
-        .gauge-yellow.gauge:before {
-            border-color: #f9f865;
+
+        .gauge-ellow.gauge:before {
+            border-color: #fdde42;
         }
 
-        .gauge-green.gauge:before {
-            border-color: #8ceab9;
-        }
-
-        gauge-blue.gauge:before {
-            border-color: #2bc5ea;
+  
+        .gauge-lue.gauge:before {
+            border-color: #f68b1f;
         }
 
 
@@ -211,7 +212,8 @@
                             </div>
                         </div>
                         <div class="">
-                            <h1>Your Score is : <%=hf1.Value %> </h1>
+                            <asp:HiddenField ID="hf2" runat="server" Value="" />
+                            <h1>Your Score is : <%=hf2.Value %> </h1>
                             <h5 class="col-lg-8" style="margin-left:05%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
                             <h5 class="col-lg-8" style="margin-left:5%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
                        <h5 class="col-lg-8" style="margin-left:5%; font-size:20px;">my name is dhrumi t thkar i am a student of lakeheadu university in thunder bay.</h5>
