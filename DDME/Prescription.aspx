@@ -36,7 +36,11 @@
 
                         <asp:Label runat="server">Select Patient: </asp:Label>
                         <asp:DropDownList ID="ddlPatient" runat="server"></asp:DropDownList>
-                        <h5>Attachments </h5>
+                        <br />
+                        <asp:RequiredFieldValidator ID="ReqPatient" runat="server" ControlToValidate="ddlPatient" ErrorMessage="Please select Patient" ForeColor="Red"></asp:RequiredFieldValidator>
+                         <br />
+                        <br />
+                         <h5>Attachments </h5>
                         <asp:FileUpload ID="txtattach1" runat="server" />
                         <br />
                         <asp:FileUpload ID="FileUpload1" runat="server" />
@@ -44,10 +48,14 @@
 
 
                         <h6>Details</h6>
-
+                        <div>
                         <asp:TextBox ID="txtPrescription" runat="server" placeholder="Prescription"></asp:TextBox>
-
-                        <asp:TextBox TextMode="MultiLine" ID="txtNote" runat="server" CssClass="ddl" placeholder="Note">                             
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtPrescription" runat="server" ErrorMessage="Field is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                       </div>
+                        <div>
+                            
+                       </div>
+                         <asp:TextBox TextMode="MultiLine" ID="txtNote" runat="server" CssClass="ddl" placeholder="Note">                             
 
                         </asp:TextBox>
 

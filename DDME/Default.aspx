@@ -15,40 +15,58 @@
 					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 						<div class="sl-slide-inner">
 							<div class="bg-img bg-img-1"></div>
-							<h3>A bene placito.</h3>
-							<blockquote><p>You have just dined, and however scrupulously the slaughterhouse is concealed in the graceful distance of miles, there is complicity.</p><cite>Ralph Waldo Emerson</cite></blockquote>
+							<h3>Facts to know</h3>
+							<blockquote><p>1 out of 3 diabetics don't know they have it already!!.</p></blockquote>
 						</div>
 					</div>
 					
 					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
 						<div class="sl-slide-inner">
 							<div class="bg-img bg-img-2"></div>
-							<h3>Regula aurea.</h3>
-							<blockquote><p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p><cite>Albert Schweitzer</cite></blockquote>
+							<h3>You can prevent it by: </h3>
+							<blockquote>
+                                <p><cite>Monotor &/or lower your blood pressure and choestrol.</cite></p>
+                               <p> <cite>Manage your weight and BMI</cite></p>
+                                <p><cite>30 minutes of activity per day five days per week or 150. Helps lowers the risk of developing type 2 by 58%.</cite></p>
+                                <p><cite>Eat a healthy diet. Less fat, more fiber, whole grain, veggies, fruits and lean meat.</cite></p>
+
+							</blockquote>
 						</div>
 					</div>
 					
 					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
 						<div class="sl-slide-inner">
 							<div class="bg-img bg-img-3"></div>
-							<h3>Dum spiro, spero.</h3>
-							<blockquote><p>Thousands of people who say they 'love' animals sit down once or twice a day to enjoy the suffering and the terror of the abattoirs.</p><cite>Dame Jane Morris Goodall</cite></blockquote>
+							<h3>Diabetes Complications.</h3>
+							<blockquote>
+                                <cite>Heart Attack,</cite>
+                                <cite>Stroke,</cite>
+                                <cite>Peripheral artery disease,</cite>
+                                <cite>Diabetic retinopathy,</cite>
+                                <cite>Cataracts,</cite>
+                                <cite>Glaucoma,</cite>
+                                <cite>Diabetic Foot,</cite>
+                                <cite>Diabetic Neuropathy,</cite>
+                                <cite>Peripheral Neuropathy</cite>
+							</blockquote>
 						</div>
 					</div>
 					
 					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
 						<div class="sl-slide-inner">
 							<div class="bg-img bg-img-4"></div>
-							<h3>Donna nobis pacem.</h3>
-							<blockquote><p>The human body has no more need for cows' milk than it does for dogs' milk, horses' milk, or giraffes' milk.</p><cite>Michael Klaper M.D.</cite></blockquote>
-						</div>
-					</div>
-					
-					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
-						<div class="sl-slide-inner">
-							<div class="bg-img bg-img-5"></div>
-							<h3>Acta Non Verba.</h3>
-							<blockquote><p>I think if you want to eat more meat you should kill it yourself and eat it raw so that you are not blinded by the hypocrisy of having it processed for you.</p><cite>Margi Clarke</cite></blockquote>
+							<h3>Type 2 Risk Factors</h3>
+							<blockquote><p>Family history of diabetes,</p>
+                                <cite>Overweight,</cite>
+                                <cite>Unhealthy Diet,</cite>
+                                <cite>Physical Inactivity,</cite>
+                                <cite>Increasing Age,</cite>
+                                <cite>High blood pressure,</cite>
+                                <cite>Ethnicity,</cite>
+                                <cite>Higher then normal blood glucose,</cite>
+                                <cite>History of gestional diabetes,</cite>
+                                <cite>Poor nutrition during pregenancy</cite>
+							</blockquote>
 						</div>
 					</div>
 				</div><!-- /sl-slider -->

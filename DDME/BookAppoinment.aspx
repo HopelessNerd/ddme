@@ -48,10 +48,10 @@
                             </asp:ListItem>
 
                         </asp:DropDownList>
-
+                        <asp:RequiredFieldValidator ID="ReqDoc" ControlToValidate="ddlDoctor" runat="server" ForeColor="Red" ErrorMessage="Please select doctor"></asp:RequiredFieldValidator>
                         <div class="clearfix"></div>
                         <label class="test-info">Select Date <span>*</span></label>
-                        <input clientidmode="Static" runat="server" class="date" id="dtpAppointmentDate" type="text" value="Appointment date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Appointment date';}" required="">
+                        <input clientidmode="Static" runat="server" class="date" id="dtpAppointmentDate" type="text" value="Appointment date"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Appointment date';}" required="">
                         <asp:RequiredFieldValidator ID="RequiredDate" ControlToValidate="dtAppinetmentDate" runat="server" ErrorMessage="Please select date" ForeColor="Red"></asp:RequiredFieldValidator>
                         <div class="clearfix"></div>
                         <label class="test-info">Start TIme <span>*</span></label>
@@ -79,6 +79,7 @@
                             <asp:ListItem Value="17:00:00">17:00</asp:ListItem>
 
                         </asp:DropDownList>
+                         <asp:RequiredFieldValidator ID="ReqStart" ControlToValidate="ddlStartTime" runat="server" ForeColor="Red" ErrorMessage="Please select start time"></asp:RequiredFieldValidator>
                         <label class="test-info">End TIme <span>*</span></label>
 
                         <asp:DropDownList runat="server" ID="ddlEndTime" CssClass="ddl">
@@ -104,7 +105,8 @@
                             <asp:ListItem Value="17:00:00">17:00</asp:ListItem>
 
                         </asp:DropDownList>
-                        <asp:Button ID="btnBoookAppoinment" runat="server" Text="Book Appoinment" OnClick="btnBoookAppoinment_Click" Style="margin-left: 0%; width: 100%;" />
+                  <asp:RequiredFieldValidator ID="ReqEnd" ControlToValidate="ddlEndTime" runat="server" ForeColor="Red" ErrorMessage="Please select end time"></asp:RequiredFieldValidator>
+                              <asp:Button ID="btnBoookAppoinment" runat="server" Text="Book Appoinment" OnClick="btnBoookAppoinment_Click" Style="margin-left: 0%; width: 100%;" />
                     </form>
 
                 </div>
