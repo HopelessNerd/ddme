@@ -19,7 +19,8 @@ public partial class Register : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        txtEmail.Text = "";
+        txtPassword.Text = "";
     }
 
     private bool SubmitData()
@@ -108,6 +109,17 @@ public partial class Register : System.Web.UI.Page
         {
             return false;
         }
+    }
+
+    protected void passmatch(object sender, EventArgs e)
+    {
+        if (txtPassword.Text == txtxConfirmPassword.Text)
+        { }
+        else
+        {
+            ScriptManager.RegisterStartupScript(Page, GetType(), "checkpass", "<script>checkpass()</script>", false);
+        }
+
     }
 
     protected void btnRegister_Click(object sender, EventArgs e)
