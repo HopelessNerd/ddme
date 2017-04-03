@@ -131,6 +131,19 @@ namespace DbConnect
             }
         }
 
+        /// <summary>
+        /// Get/Set property Prescription repository.
+        /// </summary>
+        public GenericRepository<Prescription> GenericPrescriptionRepo
+        {
+            get
+            {
+                if (this._genericPrescriptionRepo == null)
+                    this._genericPrescriptionRepo = new GenericRepository<Prescription>(_context);
+                return _genericPrescriptionRepo;
+            }
+        }
+
         #endregion
 
         #endregion
