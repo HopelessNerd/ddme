@@ -32,7 +32,8 @@ public partial class Register : System.Web.UI.Page
     }
     private void CacheDetails()
     {
-        
+        prescription.CreationDate = DateTime.Now;
+        prescription.File1 = TextBox1.Text;
     }
     protected void upload()
     {
