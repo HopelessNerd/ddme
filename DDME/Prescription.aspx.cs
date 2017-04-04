@@ -11,10 +11,11 @@ public partial class Register : System.Web.UI.Page
 {
     #region Private Variables
     private Doctor doctor = new Doctor();
+    private List<Patient> patients = new List<Patient>();
     private Prescription prescription = new Prescription();
     UnitOfWork work = new UnitOfWork();
     #endregion
-   
+
     protected void Page_Load(object sender, EventArgs e)
     {
         GenericMethods genericMethods = new GenericMethods();
@@ -23,6 +24,7 @@ public partial class Register : System.Web.UI.Page
             if (Session["UserId"] != null && (string)Session["UserType"] == "Doctor")
             {
                 doctor = work.GenericDoctorRepo.GetFirst(d => d.UserId == (int)Session["UserId"]);
+                PopulatePatientDropdown();
             }
             else
             {
@@ -32,22 +34,35 @@ public partial class Register : System.Web.UI.Page
     }
     private void CacheDetails()
     {
+        doctor = work.GenericDoctorRepo.GetFirst(d => d.UserId == (int)Session["UserId"]);
         prescription.CreationDate = DateTime.Now;
         prescription.Prescribe = txtPrescription.Text;
         prescription.File1 = TextBox1.Text;
         prescription.File2 = TextBox2.Text;
         prescription.Note = txtNote.Text;
         prescription.PatientId = int.Parse(ddlPatient.SelectedValue);
-        prescription.DoctorId = (int)(Session["UserId"]);   
+        prescription.DoctorId = doctor.Id;
     }
-    private void upload()
+
+    private void PopulatePatientDropdown()
+    {
+        IEnumerable<Patient> iPatients = work.GenericPatientRepo.GetAll();
+        patients = iPatients.ToList();
+        ddlPatient.DataTextField = "FirstName";
+        ddlPatient.DataValueField = "Id";
+        ddlPatient.DataSource = patients;
+        ddlPatient.DataBind();
+        ddlPatient.Items.Insert(0, new ListItem("Select Patient", "0"));
+    }
+    private void Upload()
     {
         if (txtattach1.HasFile && txtattach1.PostedFile != null)
         {
             if (txtattach1.PostedFile.ContentLength<4194304)
             {
                 string filename = Path.GetFileName(txtattach1.PostedFile.FileName);
-                txtattach1.SaveAs(Server.MapPath("Uploads" + filename));
+                filename = DateTime.Now.ToString("MMddyyyyhhmmss") + filename.Substring(filename.Length - (filename.Length / 2));
+                txtattach1.SaveAs(Server.MapPath("Uploads/" + filename));
                 TextBox1.Text = filename;            
             }
             else
@@ -60,8 +75,9 @@ public partial class Register : System.Web.UI.Page
         {
             if (FileUpload1.PostedFile.ContentLength < 4194304)
             {
-                string filename2 = Path.GetFileName(txtattach1.PostedFile.FileName);
-                txtattach1.SaveAs(Server.MapPath("Uploads" + filename2));
+                string filename2 = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                filename2 = DateTime.Now.ToString("MMddyyyyhhmmss") + filename2.Substring(filename2.Length - (filename2.Length / 2));
+                FileUpload1.SaveAs(Server.MapPath("Uploads/" + filename2));
                 TextBox2.Text = filename2;
             }
             else
@@ -85,16 +101,11 @@ public partial class Register : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        upload();
+        Upload();
         CacheDetails();
         if (SavePrescriptionDetails())
         {
             ScriptManager.RegisterStartupScript(Page, GetType(), "detailupdate", "<script>detailupdate()</script>", false);
         }
     }
-
-   /* protected void Upload_Click(object sender, EventArgs e)
-    {
-        upload();
-    }*/
 }
