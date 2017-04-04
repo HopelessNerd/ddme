@@ -31,10 +31,18 @@ public partial class ViewPrescription : System.Web.UI.Page
     protected void DownloadFile(object sender, EventArgs e)
     {
         string filePath = (sender as LinkButton).CommandArgument;
-        Response.ContentType = ContentType;
-        Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(filePath));
-        Response.WriteFile(filePath);
-        Response.End();
+        try
+        {
+            Response.Clear();
+            Response.ContentType = "application/octet-stream";
+            Response.AppendHeader("Content-Disposition", "filename=" + filePath);
+            Response.TransmitFile(Server.MapPath("~/Uploads/") + filePath);
+            Response.End(); 
+        }
+        catch(Exception ex)
+        {
+
+        }
     }
 
     private void CacheDataFromDatabase()
