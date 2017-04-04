@@ -20,4 +20,9 @@ public partial class ViewPrescription : System.Web.UI.Page
         Response.WriteFile(filePath);
         Response.End();
     }
+
+    protected void btnSelectPrescription_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
 }
