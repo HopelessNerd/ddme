@@ -19,7 +19,7 @@ public partial class ViewTestResult : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            if (Session["UserId"] != null && (string)Session["UserType"] == "Patient")
+            if (Session["UserId"] != null && ((string)Session["UserType"] == "Patient" || (string)Session["UserType"] == "Doctor"))
             {
                 patient = _work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
                 CacheDataFromDatabase();
