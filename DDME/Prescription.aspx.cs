@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using DbConnect;
 using DbConnect.Poco;
 using System.IO;
+
 public partial class Register : System.Web.UI.Page
 {
     #region Private Variables
@@ -14,6 +15,8 @@ public partial class Register : System.Web.UI.Page
     private List<Patient> patients = new List<Patient>();
     private Prescription prescription = new Prescription();
     UnitOfWork work = new UnitOfWork();
+    string filename,filename2;
+
     #endregion
 
     protected void Page_Load(object sender, EventArgs e)
@@ -60,7 +63,7 @@ public partial class Register : System.Web.UI.Page
         {
             if (txtattach1.PostedFile.ContentLength<4194304)
             {
-                string filename = Path.GetFileName(txtattach1.PostedFile.FileName);
+                filename = Path.GetFileName(txtattach1.PostedFile.FileName);
                 filename = DateTime.Now.ToString("MMddyyyyhhmmss") + filename.Substring(filename.Length - (filename.Length / 2));
                 txtattach1.SaveAs(Server.MapPath("Uploads/" + filename));
                 TextBox1.Text = filename;            
@@ -75,7 +78,7 @@ public partial class Register : System.Web.UI.Page
         {
             if (FileUpload1.PostedFile.ContentLength < 4194304)
             {
-                string filename2 = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                filename2 = Path.GetFileName(FileUpload1.PostedFile.FileName);
                 filename2 = DateTime.Now.ToString("MMddyyyyhhmmss") + filename2.Substring(filename2.Length - (filename2.Length / 2));
                 FileUpload1.SaveAs(Server.MapPath("Uploads/" + filename2));
                 TextBox2.Text = filename2;
@@ -85,6 +88,30 @@ public partial class Register : System.Web.UI.Page
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('File size exceeds its max limit(4 MB max)')", true);
             }
         }
+    }
+    protected void SendMail()
+    {
+        var fromAddress = doctor.Email;
+        var toAddress = work.GenericPatientRepo.GetByID(Convert.ToInt32(ddlPatient.SelectedValue)).Email;
+        const string fromPassword = "shreehari";
+        string subject = "Prescription from Doctor at "+DateTime.Now;
+        string body = "Note: " + txtPrescription.Text + "\n";
+        body += "Description: " + txtNote.Text + "\n";
+        System.Net.Mail.Attachment attachment;
+        attachment = new System.Net.Mail.Attachment(Server.MapPath("Uploads/" + TextBox2.Text));
+        System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
+        message.Attachments.Add(attachment);
+        var smtp = new System.Net.Mail.SmtpClient();
+        {
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            smtp.Credentials = new System.Net.NetworkCredential(fromAddress, fromPassword);
+            smtp.Timeout = 20000;
+        }
+        // Passing values to smtp object
+        smtp.Send(fromAddress, toAddress, subject, body);
     }
     private bool SavePrescriptionDetails()
     {
@@ -105,6 +132,7 @@ public partial class Register : System.Web.UI.Page
         CacheDetails();
         if (SavePrescriptionDetails())
         {
+            SendMail();
             ScriptManager.RegisterStartupScript(Page, GetType(), "detailupdate", "<script>detailupdate()</script>", false);
         }
     }
