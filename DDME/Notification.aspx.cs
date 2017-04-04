@@ -34,7 +34,7 @@ public partial class Notification : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("login.asspx");
+                Response.Redirect("login.aspx");
             }
            
         }
