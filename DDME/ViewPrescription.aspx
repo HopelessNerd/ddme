@@ -39,7 +39,7 @@
                                 </asp:TemplateField>                                
                                 <asp:TemplateField HeaderText="Prescription File 2">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="lnkFile1" Text="Download" CommandArgument='<%# Eval("File2") %>' runat="server" OnClick="DownloadFile"></asp:LinkButton>
+                                        <asp:LinkButton ID="lnkFile2" Text="Download" CommandArgument='<%# Eval("File2") %>' runat="server" OnClick="DownloadFile"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderStyle-Width="60">
