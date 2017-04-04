@@ -2,6 +2,14 @@
 
 
     <asp:Content runat="server" ID="Mst1" ContentPlaceHolderID="Con1">
+        
+    <style type="text/css">
+        table {
+            font-style: normal;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+    </style>
         <!-- login-section -->
         <section class="login-page">
             <div class="inner-banner demo-2 text-center">
@@ -19,7 +27,24 @@
             <!--- login ---->
             <!-- login -->
             <div class="login">
-                <div class="container">
+                <div class="container">                    
+                <form id="mainForm" runat="server">
+                    <div class="loin-form-grids">
+                        <asp:GridView ID="gvDisplayResults" runat="server" AllowPaging="false" AutoGenerateColumns="False" DataKeyNames="Id" class="table table-bordered table-hover dataTable table-striped" role="grid">
+                            <Columns>
+                                <asp:BoundField DataField="CreationDate" HeaderText="On Date" SortExpression="CreationDate" />
+                                <asp:BoundField DataField="Weight" HeaderText="Weight" SortExpression="Doctor" />
+                                <asp:BoundField DataField="Height" HeaderText="Height" SortExpression="Date" />
+                                <asp:BoundField DataField="IsDiagnosedWithBP" HeaderText="Is Diagnosed With BP" SortExpression="StartTime" />
+                                <asp:BoundField DataField="AreRelativesDiagnosed" HeaderText="Are Relatives Diagnosed" SortExpression="EndTime" />
+                                <asp:BoundField DataField="IsPhysicallyActive" HeaderText="Is Physically Active" SortExpression="IsApproved" />
+                                <asp:BoundField DataField="Waist" HeaderText="Waist" SortExpression="IsApproved" />
+                                <asp:BoundField DataField="Score" HeaderText="Score" SortExpression="IsApproved" />
+                            </Columns>
+                            <PagerStyle CssClass="dataTables_paginate paging_simple_numbers" />
+                        </asp:GridView>
+                    </div>
+                </form>
                 </div>
             </div>
         </section>
