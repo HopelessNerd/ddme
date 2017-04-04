@@ -30,18 +30,18 @@
                             <Columns>
                                 <asp:BoundField DataField="Patient" HeaderText="Patient" SortExpression="Patient" />
                                 <asp:BoundField DataField="Doctor" HeaderText="Doctor" SortExpression="Doctor" />
-                                <asp:TemplateField>
+                                <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
+                                <asp:BoundField DataField="Prescribe" HeaderText="Prescribe" SortExpression="Prescribe" />
+                                <asp:TemplateField HeaderText="Prescription File 1">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lnkFile1" Text="Download" CommandArgument='<%# Eval("File1") %>' runat="server" OnClick="DownloadFile"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>                                
-                                <asp:TemplateField>
+                                <asp:TemplateField HeaderText="Prescription File 2">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lnkFile1" Text="Download" CommandArgument='<%# Eval("File2") %>' runat="server" OnClick="DownloadFile"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
-                                <asp:BoundField DataField="Prescribe" HeaderText="Prescribe" SortExpression="Prescribe" />
                                 <asp:TemplateField HeaderStyle-Width="60">
                                     <ItemTemplate>
                                         <asp:ImageButton ID="btnSelectPrescription" OnClick="btnSelectPrescription_Click" runat="server" formnovalidate
