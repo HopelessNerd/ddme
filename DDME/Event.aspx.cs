@@ -71,6 +71,10 @@ public partial class Register : System.Web.UI.Page
         _event.Name = txtEventName.Text;
         _event.StartTime = DateTime.ParseExact(txtstart.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
         _event.EndTime = DateTime.ParseExact(txtend.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+        if (!string.IsNullOrEmpty(Request.QueryString["EventId"]))
+        {
+            _event.Id = int.Parse(Request.QueryString["EventId"].ToString());
+        }
 
     }
 
@@ -109,7 +113,7 @@ public partial class Register : System.Web.UI.Page
     {
         try
         {
-            if (_event.Id == 0)
+            if (string.IsNullOrEmpty(Request.QueryString["EventId"]))
                 work.GenericEventRepo.Insert(_event);
             else
                 work.GenericEventRepo.Update(_event);

@@ -33,18 +33,19 @@
 
                 <div class="login-form-grids">
                     <form name="Frm1" runat="server">
-
                         <asp:Label runat="server">Select Patient: </asp:Label>
-                        <asp:DropDownList ID="ddlPatient" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlPatient" runat="server">
+                            <asp:ListItem Value="1">Patient</asp:ListItem>
+                        </asp:DropDownList>
                         <br />
                         <asp:RequiredFieldValidator ID="ReqPatient" runat="server" ControlToValidate="ddlPatient" ErrorMessage="Please select Patient" ForeColor="Red"></asp:RequiredFieldValidator>
                          <br />
                         <br />
                          <h5>Attachments </h5>
-                        <asp:FileUpload ID="txtattach1" runat="server" />
+                        <asp:FileUpload ID="txtattach1" runat="server" /><asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
                         <br />
-                        <asp:FileUpload ID="FileUpload1" runat="server" />
-
+                        <asp:FileUpload ID="FileUpload1" runat="server" /><asp:TextBox ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
+                        <asp:Button ID="Upload" runat="server" Text="Upload Files"  />
 
 
                         <h6>Details</h6>
@@ -59,7 +60,7 @@
 
                         </asp:TextBox>
 
-                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+                        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
 
                     </form>
 
