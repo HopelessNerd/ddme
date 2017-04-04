@@ -26,7 +26,7 @@ public partial class Notification : System.Web.UI.Page
             }
             else if (Session["UserId"] != null && (string)Session["UserType"] == "Doctor")
             {
-                Response.Redirect("viewAppoinment.aspx");
+                Response.Redirect("ViewAppointment.aspx");
             }
             else if (Session["UserId"] != null && (string)Session["UserType"] == "Pharmacist")
             {
