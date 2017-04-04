@@ -29,6 +29,7 @@ namespace DbConnect
         #region Specific Repository
 
         private AppointmentRepository<Appointment> _appointmentRepository;
+        private PrescriptionRepository<Prescription> _prescriptionRepository;
         #endregion
         #endregion
 
@@ -156,6 +157,16 @@ namespace DbConnect
                 if (this._appointmentRepository == null)
                     this._appointmentRepository = new AppointmentRepository<Appointment>(_context);
                 return _appointmentRepository;
+            }
+        }
+
+        public PrescriptionRepository<Prescription> PrescriptionRepo
+        {
+            get
+            {
+                if (this._prescriptionRepository == null)
+                    this._prescriptionRepository = new PrescriptionRepository<Prescription>(_context);
+                return _prescriptionRepository;
             }
         }
         #endregion
