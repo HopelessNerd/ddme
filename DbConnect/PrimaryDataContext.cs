@@ -13,7 +13,7 @@ namespace DbConnect
     public class PrimaryDataContext : DbContext
     {
         public PrimaryDataContext()
-            : base("Server=localhost;Port=3306;Database=ddme;Uid=root;Pwd=Rocker@007")
+            : base("Server=localhost;Port=3306;Database=ddme;Uid=root;Pwd=123456789")
         {
         }
         public DbSet<User> User { get; set; }
