@@ -15,8 +15,18 @@ public partial class ViewAppointment : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        CacheDataFromDatabase();
-        LoadDataToGrid();
+        if (!IsPostBack)
+        {
+            if (Session["UserId"] != null && ((string)Session["UserType"] == "Patient" || (string)Session["UserType"] == "Doctor"))
+            {
+                CacheDataFromDatabase();
+                LoadDataToGrid();
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
     }
 
     private void CacheDataFromDatabase()
