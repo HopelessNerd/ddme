@@ -45,8 +45,6 @@
                         <asp:FileUpload ID="txtattach1" runat="server" /><asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
                         <br />
                         <asp:FileUpload ID="FileUpload1" runat="server" /><asp:TextBox ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
-                        <asp:Button ID="Upload" runat="server" Text="Upload Files"  />
-
 
                         <h6>Details</h6>
                         <div>
