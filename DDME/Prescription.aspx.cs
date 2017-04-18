@@ -93,7 +93,7 @@ public partial class Register : System.Web.UI.Page
     {
         var fromAddress = doctor.Email;
         var toAddress = work.GenericPatientRepo.GetByID(Convert.ToInt32(ddlPatient.SelectedValue)).Email;
-        const string fromPassword = "shreehari";
+        const string fromPassword = "";
         string subject = "Prescription from Doctor at "+DateTime.Now;
         string body = "Note: " + txtPrescription.Text + "\n";
         body += "Description: " + txtNote.Text + "\n";
