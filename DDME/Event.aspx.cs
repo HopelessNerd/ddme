@@ -64,8 +64,7 @@ public partial class Register : System.Web.UI.Page
 
     private void CacheDetails()
     {
-        patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
-        _event.PatientId = patient.Id;
+        _event.PatientId = Convert.ToInt32(ddlPatient.SelectedValue);
         _event.Description = txtDetail.Text;
         _event.CreationDate = DateTime.Now;
         _event.Name = txtEventName.Text;
@@ -83,7 +82,11 @@ public partial class Register : System.Web.UI.Page
     {
         if (string.IsNullOrEmpty(Request.QueryString["EventId"]))
         {
-            patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
+            if ((string)Session["UserType"] == "Patient")
+            {
+                patient = work.GenericPatientRepo.GetFirst(p => p.UserId == (int)Session["UserId"]);
+                ddlPatient.SelectedValue = patient.Id.ToString();
+            }
             try
             {
                 _event = work.GenericEventRepo.GetSingle(a => a.PatientId == patient.Id);
@@ -128,7 +131,7 @@ public partial class Register : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (Session["UserId"] != null && (string)Session["UserType"] == "Patient")
+        if (Session["UserId"] != null && ((string)Session["UserType"] == "Patient" || (string)Session["UserType"] == "Doctor"))
         {
             CacheDetails();
             if (SaveEventDetails())

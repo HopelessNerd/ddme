@@ -154,6 +154,7 @@
         section.results header div.container h4.pos60::after {
             left: 60%;
         }
+        
 
         .h4::after {
             -moz-border-bottom-colors: none;
@@ -213,7 +214,8 @@
                         </div>
                         <div class="">
                             <asp:HiddenField ID="hf2" runat="server" Value="" />
-                            <h1>Your Score is : <%=hf2.Value %> </h1>
+                            <h1>Your Probability is : <%=hf1.Value %>% </h1>
+                            <h4 style="margin:10px;letter-spacing:0px;"> you score <%=hf2.Value %> out of 47 </h4>
                         </div>
                     </form>
                 </div>

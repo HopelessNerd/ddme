@@ -30,7 +30,7 @@ public partial class Notification : System.Web.UI.Page
             }
             else if (Session["UserId"] != null && (string)Session["UserType"] == "Pharmacist")
             {
-                Response.Redirect(" ViewPrescription.aspx");
+                Response.Redirect("ViewPrescription.aspx");
             }
             else
             {

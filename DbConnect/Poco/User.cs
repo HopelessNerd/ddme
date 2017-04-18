@@ -22,7 +22,7 @@ namespace DbConnect.Poco
         /// <summary>
         /// Unique name used during login
         /// </summary>
-        [Column("UserName", TypeName = "VARCHAR"), Index(IsUnique = true), StringLength(20), Required]
+        [Column("UserName", TypeName = "VARCHAR"), Index(IsUnique = true), StringLength(255), Required]
         public string UserName { get; set; }
 
         /// <summary>
